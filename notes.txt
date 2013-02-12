@@ -48,14 +48,21 @@ models
 		- associated company - has many companies
 		- address - string
 		- city?  etc?
-	- room (lots of info)
+	- room type
 		- number of beds (possibly have a bed model)
 		- number of people who can stay
 		- rate per night
+	- actual physical room
+		- has a room type
+		- possibly has and belongs to reservation?
 	- reservation
 		- start date
 		- end date
 		- has many customers
 		- has many rooms
 	- service (price, type?)
-	- company? 
+		- price
+		- name
+		- description
+		- type?
+	- company? - nah just stick this on customer 
