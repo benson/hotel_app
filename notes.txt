@@ -1,0 +1,61 @@
+reservation info
+	- companies
+	- how many in a room
+	- type of room
+	- discounts
+	- overall price (at bottom?)
+	- extra notes - different hours, pickup from airport, etc - maybe have these show on hover from main schedule
+	- tab for date and time, where to pick up from
+	- checkout time affects price and is updated live
+	- services tab - extra food, dinners, laundry - all affects price, at least show additional price changes on this tab, possibly total price
+
+guests
+	- has guest info 
+	- click on guest
+		- brings up bills
+		- can select which have been paid and which haven't
+		- adds them all up
+		- when they're paid, disappear
+	- guests tab only has people that are currently in hotel
+	- once they check out, disappear
+
+"today"
+	- all rooms
+		- each room is colored for the current status
+
+food
+	- meal food, idk what exactly to do for this
+
+- keep track of cash in and out
+
+clients history tab
+	- all customers saved
+	- all info saved
+
+services tab
+	- for creating and editing services
+
+rates tab
+	- creating and editing rooms
+
+- keep complete history
+
+
+models
+	- customer (lots of info)
+		- first name - string
+		- last name - string
+		- associated company - has many companies
+		- address - string
+		- city?  etc?
+	- room (lots of info)
+		- number of beds (possibly have a bed model)
+		- number of people who can stay
+		- rate per night
+	- reservation
+		- start date
+		- end date
+		- has many customers
+		- has many rooms
+	- service (price, type?)
+	- company? 
