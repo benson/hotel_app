@@ -1,21 +1,22 @@
 !!!
 %html
   %head
-    %meta{:charset => "utf-8"}
-    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
-    %title= content_for?(:title) ? yield(:title) : "Myapp"
-    %meta{:content => "", :name => "description"}
-    %meta{:content => "", :name => "author"}
+    %title= full_title(yield(:title))
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
-    = yield(:head)
   %body
-    %header.navbar.navbar-fixed-top
+    %header.navbar.navbar-fixed-top.navbar-inverse
       %nav.navbar-inner
         .container
-          / = render 'layouts/navigation'
-    #main{:role => "main"}
+          = link_to "Hotel App", '#', id: 'logo'
+          %nav
+            %ul.nav.pull-right
+              %li= link_to "Home", '#'
+              %li= link_to "Help", '#'
+              %li= link_to "Sign in", '#'
+          /= render 'layouts/navigation'
+    #main
       .container
         .content
           .row

@@ -11,9 +11,4 @@ class StaticPagesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get about--no-test-framework" do
-    get :about--no-test-framework
-    assert_response :success
-  end
-
 end
