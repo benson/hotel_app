@@ -12,6 +12,7 @@ end
 group :development, :test do
 	gem 'sqlite3'
 	gem 'rspec-rails'
+  gem 'annotate'
 end
 
 group :test do
@@ -34,6 +35,7 @@ gem 'jquery-rails'
 gem 'thin'
 gem 'bootstrap-sass'
 gem 'haml'
+gem 'sorcery'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -66,3 +66,7 @@ models
 		- description
 		- type?
 	- company? - nah just stick this on customer 
+
+
+when someone checks out, you get a receipt with everything they paid, etc
+
