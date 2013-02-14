@@ -5,22 +5,9 @@
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
+    = render 'layouts/shim'
   %body
-    %header.navbar.navbar-fixed-top.navbar-inverse
-      %nav.navbar-inner
-        .container
-          = link_to "Hotel App", '#', id: 'logo'
-          %nav
-            %ul.nav.pull-right
-              %li= link_to "Home", '#'
-              %li= link_to "Help", '#'
-              %li= link_to "Sign in", '#'
-          /= render 'layouts/navigation'
-    #main
-      .container
-        .content
-          .row
-            .span12
-              / = render 'layouts/messages'
-              = yield
-          %footer
+    = render 'layouts/navigation'
+    .container
+      = yield
+      = render 'layouts/footer'
