@@ -3,6 +3,6 @@
   %h1 Welcome to the Hotel App
   %h2 This is the home page!
   - if current_user
-    %h3 You're signed in as current_user.email.
+    %h3 You're signed in as #{current_user.email}.
   - else
     = link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary"

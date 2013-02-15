@@ -1,0 +1,11 @@
+%h1 Log in
+.row
+  .span6.offset3
+    = form_tag sessions_path do 
+      = label_tag :email 
+      = text_field_tag :email, params[:email] 
+      = label_tag :password 
+      = password_field_tag :password 
+      = check_box_tag :remember_me, 1, params[:remember_me] 
+      = label_tag :remember_me 
+      .actions= submit_tag "Log in" 
