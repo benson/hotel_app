@@ -45,9 +45,8 @@ models
 	- customer (lots of info)
 		- first name - string
 		- last name - string
-		- associated company - has many companies
-		- address - string
-		- city?  etc?
+		- passport/dni number - int
+		- associated company - string
 	- room type
 		- number of beds (possibly have a bed model)
 		- number of people who can stay

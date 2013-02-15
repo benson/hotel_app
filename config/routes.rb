@@ -4,6 +4,7 @@ HotelApp::Application.routes.draw do
   get "signup" => "users#new", :as => "signup"
   resources :users
   resources :sessions
+  resources :customers
 
   root to: 'static_pages#home'
   match '/help', to: 'static_pages#help'
@@ -11,7 +12,7 @@ HotelApp::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
 
 
-  resources :customers
+  
 
 
   # The priority is based upon order of creation:
