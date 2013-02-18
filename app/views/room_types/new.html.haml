@@ -1,0 +1,17 @@
+%h1 New Room Type
+
+.row
+  .span6.offset3
+    = form_for @room_type do |f| 
+      = render 'shared/error_messages', object: f.object
+      = f.label :name 
+      = f.text_field :name 
+      = f.label :spaces 
+      = f.text_field :spaces 
+      = f.label :price
+      .input-prepend
+        %span.add-on S./  
+        = f.text_field :price, style:"width: 432px"
+
+      = f.submit "Create Room Type!", class: "btn btn-large btn-primary"
+      = link_to "Back", room_types_path, class: "btn btn-large pull-right"

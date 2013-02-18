@@ -48,9 +48,9 @@ models
 		- passport/dni number - int
 		- associated company - string
 	- room type
-		- number of beds (possibly have a bed model)
-		- number of people who can stay
-		- rate per night
+		- name - string
+		- number of people who can stay - int
+		- rate per night - decimal
 	- actual physical room
 		- has a room type
 		- possibly has and belongs to reservation?

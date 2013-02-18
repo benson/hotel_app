@@ -4,6 +4,8 @@
   %h2 This is the home page!
   - if current_user
     %h3 You're signed in as #{current_user.email}.
-    = link_to "Customers", customers_path
+    %ul
+      %li= link_to "Customers", customers_path
+      %li= link_to "Room Types", room_types_path
   - else
     = link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary"
