@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130219012037) do
+ActiveRecord::Schema.define(:version => 20130219172145) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(:version => 20130219012037) do
 
   add_index "companies_customers", ["customer_id", "company_id"], :name => "index_companies_customers_on_customer_id_and_company_id", :unique => true
 
+  create_table "companies_reservations", :id => false, :force => true do |t|
+    t.integer "company_id",     :null => false
+    t.integer "reservation_id", :null => false
+  end
+
+  add_index "companies_reservations", ["company_id", "reservation_id"], :name => "index_companies_reservations_on_company_id_and_reservation_id", :unique => true
+
   create_table "customers", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -34,6 +41,27 @@ ActiveRecord::Schema.define(:version => 20130219012037) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "customers_reservations", :id => false, :force => true do |t|
+    t.integer "customer_id",    :null => false
+    t.integer "reservation_id", :null => false
+  end
+
+  add_index "customers_reservations", ["customer_id", "reservation_id"], :name => "index_customers_reservations_on_customer_id_and_reservation_id", :unique => true
+
+  create_table "reservations", :force => true do |t|
+    t.date     "start"
+    t.date     "end"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "reservations_rooms", :id => false, :force => true do |t|
+    t.integer "room_id",        :null => false
+    t.integer "reservation_id", :null => false
+  end
+
+  add_index "reservations_rooms", ["reservation_id", "room_id"], :name => "index_reservations_rooms_on_reservation_id_and_room_id", :unique => true
 
   create_table "room_types", :force => true do |t|
     t.string   "name"

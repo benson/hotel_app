@@ -39,6 +39,7 @@ gem 'sorcery'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'rails-i18n'
+gem 'jquery-ui-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

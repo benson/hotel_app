@@ -1,0 +1,20 @@
+- provide(:title, "Creating Reservation") 
+%h1 Edit Reservation
+
+.row
+  .span6.offset3
+    = form_for @reservation do |f| 
+      = render 'shared/error_messages', object: f.object
+      = f.label :start
+      = f.text_field :start 
+      = f.label :end 
+      = f.text_field :end 
+      = f.label :company
+      = f.collection_select(:company_ids, Company.all, :id, :name)
+      = f.label :customer
+      = f.collection_select(:customer_ids, Customer.all, :id, :full_name)
+      = f.label :room
+      = f.collection_select(:room_ids, Room.all, :id, :name)
+
+      = f.submit "Update reservation!", class: "btn btn-large btn-primary"
+      = link_to "Back", reservations_path, class: "btn btn-large pull-right"

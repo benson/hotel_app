@@ -1,0 +1,11 @@
+- provide(:title, "Reservation")
+%ul
+  %li= @reservation.start
+  %li= @reservation.end
+  - @reservation.customers.each do |customer|
+    %li= full_name(customer)
+  - @reservation.rooms.each do |room|
+    %li= room.name
+  %li= @reservation.companies.first.name
+
+= link_to "Back", reservations_path, class: "btn btn-large"
