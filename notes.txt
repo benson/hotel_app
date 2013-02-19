@@ -1,3 +1,13 @@
+TO DO:
+
+1. daily view
+2. calendar view ;___;
+3. services
+4. add customer/company during reservation
+
+
+
+
 reservation info
 	- companies
 	- how many in a room
