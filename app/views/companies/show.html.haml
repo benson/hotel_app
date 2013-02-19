@@ -1,0 +1,6 @@
+- provide(:title, @company.name)
+%ul
+  %li= @company.name
+  %li= @company.number
+
+= link_to "Back", companies_path, class: "btn btn-large"

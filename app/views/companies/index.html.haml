@@ -1,0 +1,12 @@
+- provide(:title, 'All companies') 
+%h1 All companies
+
+/ = will_paginate 
+= link_to "New Company", new_company_path
+%ul.companies
+  - @companies.each do |company| 
+    %li
+      = link_to "#{company.name}", company 
+      = link_to "Delete", company, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-small"
+      = link_to "Edit", edit_company_path(company), class: "btn btn-small"
+/ = will_paginate 

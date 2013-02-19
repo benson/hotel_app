@@ -46,7 +46,12 @@ models
 		- first name - string
 		- last name - string
 		- passport/dni number - int
-		- associated company - string
+		- associated company - HABTM 
+  - company
+    - name - string
+    - number - int
+    - HABTM customers
+    - HABTM reservations
 	- room type
 		- name - string
 		- number of people who can stay - int
@@ -57,8 +62,9 @@ models
 	- reservation
 		- start date
 		- end date
-		- has many customers
-		- has many rooms
+		- HABTM customers
+		- HABTM rooms
+    - HABTM companies
 	- service (price, type?)
 		- price
 		- name

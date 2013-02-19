@@ -11,13 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130218192621) do
+ActiveRecord::Schema.define(:version => 20130219012037) do
+
+  create_table "companies", :force => true do |t|
+    t.string   "name"
+    t.integer  "number"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "companies_customers", :id => false, :force => true do |t|
+    t.integer "customer_id", :null => false
+    t.integer "company_id",  :null => false
+  end
+
+  add_index "companies_customers", ["customer_id", "company_id"], :name => "index_companies_customers_on_customer_id_and_company_id", :unique => true
 
   create_table "customers", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "number"
-    t.string   "company"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

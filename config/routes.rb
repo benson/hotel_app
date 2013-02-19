@@ -7,6 +7,7 @@ HotelApp::Application.routes.draw do
   resources :customers
   resources :rooms
   resources :room_types
+  resources :companies
 
 
   root to: 'static_pages#home'
