@@ -5,6 +5,11 @@ TO DO:
 3. services
 4. add customer/company during reservation
 
+you could then iterate through your array of dates (first to create the headers) and then rooms times to fill the rows. 
+then just check the hash if it gives you the current room for the current date.
+
+benson: ok how about this. 
+Generate an array of the dates you want to show in your controller then generate a hash with date => room and use those in your view.
 
 
 

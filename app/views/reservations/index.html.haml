@@ -1,5 +1,5 @@
 - provide(:title, 'All Reservations') 
-%h1 All Reservations Types
+%h1 All Reservations
 
 / = will_paginate 
 = link_to "New Reservation", new_reservation_path
@@ -10,3 +10,7 @@
       = link_to "Delete", reservation, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-small"
       = link_to "Edit", edit_reservation_path(reservation), class: "btn btn-small"
 / = will_paginate 
+
+#reservations
+  - calendar do |date| 
+    = date.day
