@@ -1,0 +1,6 @@
+- provide(:title, @room.name)
+%ul
+  %li= @room.name
+  %li= @room.room_types.first.name
+
+= link_to "Back", rooms_path, class: "btn btn-large"

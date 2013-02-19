@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130218172914) do
+ActiveRecord::Schema.define(:version => 20130218192621) do
 
   create_table "customers", :force => true do |t|
     t.string   "first_name"
@@ -26,6 +26,19 @@ ActiveRecord::Schema.define(:version => 20130218172914) do
     t.string   "name"
     t.integer  "spaces"
     t.decimal  "price"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "room_types_rooms", :id => false, :force => true do |t|
+    t.integer "room_id",      :null => false
+    t.integer "room_type_id", :null => false
+  end
+
+  add_index "room_types_rooms", ["room_id", "room_type_id"], :name => "index_room_types_rooms_on_room_id_and_room_type_id", :unique => true
+
+  create_table "rooms", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

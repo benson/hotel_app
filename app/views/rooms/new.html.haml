@@ -1,0 +1,13 @@
+%h1 New Room
+
+.row
+  .span6.offset3
+    = form_for @room do |f| 
+      = render 'shared/error_messages', object: f.object
+      = f.label :name 
+      = f.text_field :name 
+      = f.label :room_type
+      = f.collection_select(:room_type_ids, RoomType.all, :id, :name, {style: "padding: 0px"})
+
+      = f.submit "Create Room!", class: "btn btn-large btn-primary"
+      = link_to "Back", rooms_path, class: "btn btn-large pull-right"

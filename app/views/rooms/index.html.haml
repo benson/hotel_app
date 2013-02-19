@@ -1,0 +1,12 @@
+- provide(:title, 'All rooms') 
+%h1 All rooms
+
+/ = will_paginate 
+= link_to "New Room", new_room_path
+%ul.rooms
+  - @rooms.each do |room| 
+    %li
+      = link_to "#{room.name}", room 
+      = link_to "Delete", room, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-small"
+      = link_to "Edit", edit_room_path(room), class: "btn btn-small"
+/ = will_paginate 

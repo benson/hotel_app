@@ -5,7 +5,9 @@ HotelApp::Application.routes.draw do
   resources :users
   resources :sessions
   resources :customers
+  resources :rooms
   resources :room_types
+
 
   root to: 'static_pages#home'
   match '/help', to: 'static_pages#help'
