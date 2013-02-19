@@ -1,7 +1,7 @@
 - provide(:title, "Reservation")
 %ul
-  %li= @reservation.start
-  %li= @reservation.end
+  %li= @reservation.start_date
+  %li= @reservation.end_date
   - @reservation.customers.each do |customer|
     %li= full_name(customer)
   - @reservation.rooms.each do |room|

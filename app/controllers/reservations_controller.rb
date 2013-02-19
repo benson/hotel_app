@@ -6,7 +6,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(params[:reservation])
     if @reservation.save
-      flash[:success] = "Successfully added #{@reservation.start} - #{@reservation.end}!"
+      flash[:success] = "Successfully added #{@reservation.full_name}!"
       redirect_to reservations_path
     else
       render :new
@@ -15,6 +15,8 @@ class ReservationsController < ApplicationController
 
   def show
     @reservation = Reservation.find(params[:id])
+    @reservations = 
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   def edit
@@ -34,6 +36,8 @@ class ReservationsController < ApplicationController
   def index
     # @reservations = Reservation.paginate(page: params[:page])
     @reservations = Reservation.all
+    @reservations_by_date = @reservations.group_by(&:start_date) 
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   def destroy

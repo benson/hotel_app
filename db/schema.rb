@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(:version => 20130219172145) do
   add_index "customers_reservations", ["customer_id", "reservation_id"], :name => "index_customers_reservations_on_customer_id_and_reservation_id", :unique => true
 
   create_table "reservations", :force => true do |t|
-    t.date     "start"
-    t.date     "end"
+    t.date     "start_date"
+    t.date     "end_date"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

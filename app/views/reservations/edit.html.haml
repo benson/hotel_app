@@ -5,10 +5,10 @@
   .span6.offset3
     = form_for @reservation do |f| 
       = render 'shared/error_messages', object: f.object
-      = f.label :start
-      = f.text_field :start 
-      = f.label :end 
-      = f.text_field :end 
+      = f.label :start_date
+      = f.text_field :start_date 
+      = f.label :end_date
+      = f.text_field :end_date 
       = f.label :company
       = f.collection_select(:company_ids, Company.all, :id, :name)
       = f.label :customer

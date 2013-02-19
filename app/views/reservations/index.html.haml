@@ -12,5 +12,13 @@
 / = will_paginate 
 
 #reservations
-  - calendar do |date| 
-    = date.day
+  %h2#month
+    = link_to "<", date: @date.prev_month 
+    = @date.strftime("%B %Y") 
+    = link_to ">", date: @date.next_month 
+  = calendar @date do |date| 
+    = date.day 
+    - if @reservations_by_date[date] 
+      %ul
+        - @reservations_by_date[date].each do |reservation| 
+          %li= link_to reservation.full_name, reservation

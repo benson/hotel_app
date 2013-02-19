@@ -1,5 +1,8 @@
 module CalendarHelper
   def calendar(date = Date.today, &block)
+    content_tag :h1 do  
+      "HEY IS THIS WORKING"
+    end
     Calendar.new(self, date, block).table
   end
 
