@@ -1,0 +1,23 @@
+- provide(:title, "Daily View") 
+%h1 Daily view of all rooms
+
+.row
+  .span6.offset3
+    %table.table.table-striped.table-bordered#room-list
+      %thead
+        %tr
+          %th Room
+          %th Status
+      %tbody
+      - @rooms.each do |room|
+        %tr
+          %td= room.name
+          %td
+            - if !room.check_in_today.nil?
+              .check-in= link_to "#{room.check_in_today.customers.first.full_name} checks in today.", room.check_in_today
+            - elsif !room.check_out_today.nil?
+              .check-out= link_to "#{room.check_out_today.customers.first.full_name} checks out today.", room.check_out_today
+            - elsif !room.booked.nil?
+              .booked= link_to "#{room.booked.customers.first.full_name} is in the room today.", room.booked
+            - else
+              .free Room is empty.

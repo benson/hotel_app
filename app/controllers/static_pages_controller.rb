@@ -8,4 +8,8 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
+  def daily
+    @rooms = Room.all  
+  end
+
 end
