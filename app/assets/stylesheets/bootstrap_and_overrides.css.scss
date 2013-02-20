@@ -176,6 +176,11 @@ input {
 
   .notmonth, .notmonth a { color: #CCC; }
   .today { background-color: #D7F2FF; }
+  .beforetoday { color: #999; }
+
+  .reservation_link{
+    font-size: 12px;
+  }
 }
 
 #reservations #month {
@@ -183,6 +188,7 @@ input {
   padding-bottom: 10px;
   text-align: center;
   font-size: 22px;
+  color: black;
   a {
     text-decoration: none;
     padding: 0 10px;
@@ -194,3 +200,4 @@ input {
   font-size: 11px;
   padding-left: 20px;
 }
+

@@ -3,7 +3,7 @@
   %li= @reservation.start_date
   %li= @reservation.end_date
   - @reservation.customers.each do |customer|
-    %li= full_name(customer)
+    %li= customer.full_name
   - @reservation.rooms.each do |room|
     %li= room.name
   %li= @reservation.companies.first.name

@@ -17,12 +17,16 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @reservations = @room.reservations.all
     @all_reservations = []
-    @res_by_date = []
+    @res_by_date = Hash.new
     @reservations.each do |res|
       @res_dates = res.start_date..res.end_date
       @all_reservations.concat @res_dates.to_a
       @res_dates.to_a.each do |date|
-        @res_by_date = res
+        if @res_by_date.values_at(date.to_s) == [nil]
+          @res_by_date[date.to_s] = []
+        end
+        @res_by_date[date.to_s] << res
+        # @res_by_date[date.to_s] = @res_by_date.values_at(date).empty? ? res : @res_by_date[date.to_s].
       end
     end
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
