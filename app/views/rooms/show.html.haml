@@ -7,9 +7,9 @@
 
 #reservations
   %h2#month
-    = link_to "<", date: @date.prev_month 
+    = link_to "<", date: @date - 1.week
     = @date.strftime("%B %Y") 
-    = link_to ">", date: @date.next_month 
+    = link_to ">", date: @date + 1.week
   = calendar @date do |date| 
     = date.day 
     - if @all_reservations.include?(date) 

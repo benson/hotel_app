@@ -13,12 +13,12 @@
 
 #reservations
   %h2#month
-    = link_to "<", date: @date.prev_month 
+    = link_to "<", date: @date - 1.week 
     = @date.strftime("%B %Y") 
-    = link_to ">", date: @date.next_month 
-  = calendar @date do |date| 
+    = link_to ">", date: @date + 1.week
+  = long_calendar @date do |date| 
     = date.day 
-    - if @reservations_by_date[date] 
-      %ul
-        - @reservations_by_date[date].each do |reservation| 
-          %li= link_to reservation.full_name, reservation
+    / - if @reservations_by_date[date] 
+    /   %ul
+    /     - @reservations_by_date[date].each do |reservation| 
+    /       %li= link_to reservation.full_name, reservation
