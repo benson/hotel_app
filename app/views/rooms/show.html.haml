@@ -4,3 +4,13 @@
   %li= @room.room_types.first.name
 
 = link_to "Back", rooms_path, class: "btn btn-large"
+
+#reservations
+  %h2#month
+    = link_to "<", date: @date.prev_month 
+    = @date.strftime("%B %Y") 
+    = link_to ">", date: @date.next_month 
+  = calendar @date do |date| 
+    = date.day 
+    - if @all_reservations.include?(date) 
+      = link_to "Booked", @res_by_date[date]

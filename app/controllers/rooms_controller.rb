@@ -15,6 +15,18 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @reservations = @room.reservations.all
+    @all_reservations = []
+    @res_by_date = []
+    @reservations.each do |res|
+      @res_dates = res.start_date..res.end_date
+      @all_reservations.concat @res_dates.to_a
+      @res_dates.to_a.each do |date|
+        @res_by_date = res
+      end
+    end
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+
   end
 
   def edit

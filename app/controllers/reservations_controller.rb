@@ -15,8 +15,6 @@ class ReservationsController < ApplicationController
 
   def show
     @reservation = Reservation.find(params[:id])
-    @reservations = 
-    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   def edit
