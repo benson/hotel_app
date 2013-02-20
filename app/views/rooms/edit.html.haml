@@ -10,4 +10,4 @@
       = f.collection_select(:room_type_ids, RoomType.all, :id, :name, {style: "padding: 0px"})
 
       = f.submit "Update Room!", class: "btn btn-large btn-primary"
-      = link_to "Back", rooms_path, class: "btn btn-large pull-right"
+      = link_to "Back", :back, class: "btn btn-large pull-right"

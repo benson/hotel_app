@@ -17,4 +17,4 @@
       = f.collection_select(:room_ids, Room.all, :id, :name)
 
       = f.submit "Update reservation!", class: "btn btn-large btn-primary"
-      = link_to "Back", reservations_path, class: "btn btn-large pull-right"
+      = link_to "Back", :back, class: "btn btn-large pull-right"

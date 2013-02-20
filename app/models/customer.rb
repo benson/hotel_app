@@ -8,4 +8,8 @@ class Customer < ActiveRecord::Base
   def full_name
     "#{last_name}, #{first_name}"
   end
+
+  def initial_name
+    "#{first_name.first}. #{last_name}"
+  end
 end

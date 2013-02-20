@@ -12,7 +12,7 @@
       = f.label :number 
       = f.text_field :number 
       = f.label :company
-      = f.collection_select(:company_ids, Company.all, :id, :name)
+      = f.collection_select(:company_ids, Company.all, :id, :name, {include_blank: true})
 
       = f.submit "Create customer!", class: "btn btn-large btn-primary"
-      = link_to "Back", customers_path, class: "btn btn-large pull-right"
+      = link_to "Back", :back, class: "btn btn-large pull-right"

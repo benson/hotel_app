@@ -4,4 +4,4 @@
   %li= @room_type.spaces
   %li= number_to_currency(@room_type.price, precision: 2, :locale => "es-PE")
 
-= link_to "Back", room_types_path, class: "btn btn-large"
+= link_to "Back", :back, class: "btn btn-large"
