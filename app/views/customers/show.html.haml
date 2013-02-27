@@ -1,6 +1,6 @@
-- provide(:title, full_name(@customer))
+- provide(:title, @customer.initial_name)
 %ul
-  %li= full_name(@customer)
+  %li= @customer.full_name
   %li= @customer.number
 
 = link_to "Back", :back, class: "btn btn-large"
