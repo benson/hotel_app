@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: room_types
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  spaces     :integer
+#  price      :decimal(, )
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class RoomType < ActiveRecord::Base
   has_and_belongs_to_many :rooms
   attr_accessible :name, :price, :spaces
