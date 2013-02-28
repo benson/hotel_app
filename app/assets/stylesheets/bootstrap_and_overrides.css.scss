@@ -142,6 +142,16 @@ input {
   @extend .error;
  }
 
+ legend{
+  line-height: 30px;
+ }
+
+ /* Chosen form shit */
+ .chzn-container
+{
+  padding-bottom: 20px;
+}
+
  /* custom shit */
  input, textarea, select, .uneditable-input{
   padding: 0 0 0 2px;

@@ -24,6 +24,8 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  # nice chosen boxes
+  gem 'chosen-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -40,7 +42,9 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'rails-i18n'
 gem 'jquery-ui-rails'
+# country support
 gem 'carmen-rails'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
