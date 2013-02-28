@@ -5,7 +5,17 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(params[:customer])
+    if !params[:company_name].empty?
+      @company = Company.new(name: params[:company_name], number:params[:company_number])
+      if !@company.save
+        flash[:warning] = "Company didn't save yo"
+        render :new and return
+      end
+    end
     if @customer.save
+      if !@company.nil?
+        @customer.companies << @company
+      end
       flash[:success] = "Successfully added #{@customer.first_name}!"
       redirect_to customers_path
     else

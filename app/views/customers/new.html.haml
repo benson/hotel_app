@@ -9,10 +9,20 @@
       = f.text_field :first_name 
       = f.label :last_name 
       = f.text_field :last_name 
-      = f.label :number 
+      = f.label :number, 'DNI/Passport Number'
       = f.text_field :number 
+      = f.label :address_line_1, 'Address'
+      = f.text_field :address_line_1
+      = f.label :address_line_2, 'City'
+      = f.text_field :address_line_2
+      = f.label :address_line_3, 'Country'
+      = f.country_select :address_line_3
       = f.label :company
       = f.collection_select(:company_ids, Company.all, :id, :name, {include_blank: true})
+      = label_tag :company_name, "Company Name"
+      = text_field_tag :company_name
+      = label_tag :company_number, "Company Number"
+      = text_field_tag :company_number
 
       = f.submit "Create customer!", class: "btn btn-large btn-primary"
-      = link_to "Back", :back, class: "btn btn-large pull-right"
+      = link_to "Back", customers_path, class: "btn btn-large pull-right"

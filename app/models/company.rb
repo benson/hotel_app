@@ -13,5 +13,8 @@ class Company < ActiveRecord::Base
   has_and_belongs_to_many :customers
   has_and_belongs_to_many :reservations
   attr_accessible :name, :number
-
+  
+  validates :name, :uniqueness => true
+  validates :name, presence: true
+  validates_numericality_of :number, :only_integer => true
 end

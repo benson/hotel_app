@@ -13,6 +13,11 @@ then just check the hash if it gives you the current room for the current date.
 
 benson: ok how about this. 
 Generate an array of the dates you want to show in your controller then generate a hash with date => room and use those in your view.
+<myobie> benson: one simplistic way would be to have a field with the name "new_company" or something similar and in the controller look for that param to create a company before you assign the habtm
+<benson> myobie: hm that actually seems like a pretty easy way to do it
+<benson> and just create the new company model in the customer's controller? 
+<myobie> benson: it is an option
+<myobie> benson: some people might make a strange attribute on customer and have that auto create a company, but I prefer to just be explicit in the controller with simple ruby code
 
 
 
