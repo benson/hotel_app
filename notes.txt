@@ -1,6 +1,6 @@
 TO DO:
 
-1. daily view
+1. daily view - sortable headers
 2. calendar view ;___;
 3. services
 4. add customer/company during reservation
