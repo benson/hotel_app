@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+  layout "webapp"
   def new
     @reservation = Reservation.new
   end

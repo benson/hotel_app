@@ -19,6 +19,31 @@ Generate an array of the dates you want to show in your controller then generate
 
 
 
+
+TABS:
+
+Daily
+  - daily customers
+  - daily reservations (by room)
+Reservations
+  - current + future
+  - history
+  - crud options
+Rooms
+  - display (with status?)
+  - crud options
+Rates
+  - display as table?
+  - crud options
+Services
+  - display as table
+  - crud options
+Customers
+  - current? 
+  - crud options
+Companies 
+  - crud options
+
 reservation info
 	- companies
 	- how many in a room

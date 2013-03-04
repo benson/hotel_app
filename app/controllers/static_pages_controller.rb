@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  layout "webapp", only: :daily 
   def home
   end
 

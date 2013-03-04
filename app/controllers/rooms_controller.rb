@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  layout "webapp"
   def new
     @room = Room.new
   end

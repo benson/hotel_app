@@ -27,6 +27,9 @@ group :assets do
   # nice chosen boxes
   gem 'chosen-rails'
 
+  # nice tables
+  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
@@ -42,8 +45,12 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'rails-i18n'
 gem 'jquery-ui-rails'
+
 # country support
 gem 'carmen-rails'
+
+# icons
+gem 'font-awesome-rails'
 
 
 # To use ActiveModel has_secure_password

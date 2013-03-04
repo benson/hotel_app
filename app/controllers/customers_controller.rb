@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+  layout "webapp"
   def new
     @customer = Customer.new
   end

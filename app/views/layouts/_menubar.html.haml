@@ -1,0 +1,28 @@
+%header.navbar
+  %nav.navbar-inner
+    %nav
+      %ul.nav
+        %li{class: "#{'active' if params[:action] == 'daily'}"}
+          = link_to daily_path do
+            %i.icon-time
+            Daily
+        %li{class: "#{'active' if params[:controller] == 'reservations'}"}
+          = link_to reservations_path do 
+            %i.icon-calendar
+            Reservations
+        %li{class: "#{'active' if params[:controller] == 'rooms'}"}
+          = link_to rooms_path do
+            %i.icon-home
+            Rooms
+        %li{class: "#{'active' if params[:controller] == 'room_types'}"}
+          = link_to room_types_path do
+            %i.icon-money
+            Rates
+        %li{class: "#{'active' if params[:controller] == 'customers'}"}
+          = link_to customers_path do
+            %i.icon-group
+            Customers
+        %li
+          = link_to "#" do
+            %i.icon-food
+            Services        
