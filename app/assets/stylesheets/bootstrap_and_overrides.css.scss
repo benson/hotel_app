@@ -163,7 +163,7 @@ input {
  }
 
 /* reservations calendar */
- #reservations .calendar {
+#reservations .calendar {
   border-collapse: collapse;
   width: 100%;
 
@@ -217,14 +217,10 @@ input {
 }
 
 /* Daily View */
-#room-list {
-
-
-  .label{
-    a{
-      text-decoration: none;
-      color: white;
-    }
+.label{
+  a{
+    text-decoration: none;
+    color: white;
   }
 }
 
@@ -251,30 +247,3 @@ div#main-pane {
   min-height:800px;
   @include box_sizing;
 }
-
-div#content {
-  // width:739px; 
-  // // border-left:1px 
-  // // solid #E3E3E3; 
-  // padding-left:20px;
-  // padding-right:20px; 
-  // padding-top:10px; 
-  // margin-left:0px; 
-  // min-height:720px;
-}
-
-// title bar for each section (rooms, reservations, etc) of the app
-// div#header {
-//  border-left:1px solid #E3E3E3; 
-//  border-bottom:1px solid #E3E3E3; 
-//  margin-left:0px; 
-//  width:777px; 
-//  height:70px;
-//  padding-bottom:0px;
-//  h1 {
-//   padding-left:22px;
-//   margin-bottom:0px;
-//   padding-top:10px;
-//   padding-bottom:10px
-//  }
-// }

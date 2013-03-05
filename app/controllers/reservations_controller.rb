@@ -35,6 +35,7 @@ class ReservationsController < ApplicationController
   def index
     # @reservations = Reservation.paginate(page: params[:page])
     @reservations = Reservation.all
+    @rooms = Room.all
     @reservations_by_date = @reservations.group_by(&:start_date) 
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end

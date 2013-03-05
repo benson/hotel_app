@@ -1,6 +1,9 @@
 .row
   .span10.offset1
-    %h3 Make sure you have your customer created: #{link_to "New Customer", new_customer_path}
+    %h3 Make sure you have your customer created: #{collection_select :reservation, :customer_ids, Customer.all, :id, :full_name, {include_blank: true}, {class: "chzn-select", :'data-placeholder' => "Search Customers"}}
+    %h2 Current customers: #{link_to "New Customer", new_customer_path}
     %h3 Make sure you have your rooms created: #{link_to "New Room", new_room_path}
+    %h2 Current rooms: #{collection_select :reservation, :room_ids, Room.all, :id, :name, {include_blank: true}, {class: "chzn-select", :'data-placeholder' => "Search Rooms"}}
     %h3 Make sure you have your company created: #{link_to "New Company", new_company_path}
+    %h2 Current companies: #{collection_select :reservation, :company_ids, Company.all, :id, :name, {include_blank: true}, {class: "chzn-select", :'data-placeholder' => "Search Companies"}}
     
