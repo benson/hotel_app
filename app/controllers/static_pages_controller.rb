@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  layout "webapp", only: :daily 
+  layout "webapp", only: [:daily, :quickres]
   def home
   end
 
@@ -11,6 +11,12 @@ class StaticPagesController < ApplicationController
 
   def daily
     @rooms = Room.all  
+  end
+
+  def quickres
+    @customers = Customer.all
+    @rooms = Room.all
+    @companies = Company.all
   end
 
 end

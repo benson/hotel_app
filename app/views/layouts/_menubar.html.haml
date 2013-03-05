@@ -2,6 +2,10 @@
   %nav.navbar-inner
     %nav
       %ul.nav
+        %li{class: "#{'active' if params[:action] == 'quickres'}"}
+          = link_to quickres_path do
+            %i.icon-star
+            Quick Reservation 
         %li{class: "#{'active' if params[:action] == 'daily'}"}
           = link_to daily_path do
             %i.icon-time

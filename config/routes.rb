@@ -16,6 +16,7 @@ HotelApp::Application.routes.draw do
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   match '/daily', to: 'static_pages#daily'
+  match '/quickres', to: 'static_pages#quickres'
 
 
   

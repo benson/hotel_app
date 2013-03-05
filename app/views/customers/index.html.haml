@@ -1,22 +1,31 @@
 - provide(:header, 'All customers') 
 
 / = will_paginate 
-= link_to "New Customer", new_customer_path
+#content
+  .row
+    .span10.offset1.button-row
+      = link_to "New Customer", new_customer_path, class: "btn pull-left"
+    .span10.offset1
+      %hr
 
-%table#customers-table
-  %thead
-    %tr
-      %th Name
-      %th Company
-  %tbody
-    - @customers.each do |customer| 
-      %tr
-        %td= link_to customer.full_name, customer 
-        %td
-          - if customer.companies.first.nil?
-            No company
-          - else
-            = link_to customer.companies.first.name, customer.companies.first
-          / = link_to "Delete", customer, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-small"
-          / = link_to "Edit", edit_customer_path(customer), class: "btn btn-small"
-/ = will_paginate 
+  .row
+    .span10.offset1
+      %table.table-bordered.table-striped.table.display.dataTables-table
+        %thead
+          %tr
+            %th Name
+            %th Company
+            %th Edit
+            %th Delete
+        %tbody
+          - @customers.each do |customer| 
+            %tr
+              %td= link_to customer.full_name, customer 
+              %td
+                - if customer.companies.first.nil?
+                  No company
+                - else
+                  = link_to customer.companies.first.name, customer.companies.first
+              %td= link_to "Edit", edit_customer_path(customer)
+              %td= link_to "Delete", customer, method: :delete, data: { confirm: "You sure?" }
+      / = will_paginate 

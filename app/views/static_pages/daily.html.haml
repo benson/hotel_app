@@ -1,31 +1,36 @@
-- provide(:title, "Daily View") 
-%h1 Daily view of all rooms
+- provide(:header, 'All Rates') 
 
-.row
-  .span8.offset2
-    %table.table.table-striped.table-bordered#room-list
-      %thead
-        %tr
-          %th Room
-          %th Status
-          %th Customer
-          %th Company
-      %tbody
-      - @rooms.each do |room|
-        %tr
-          %td= link_to room.name, room
-          %td
-            - if room.check_in_today
-              %span.label.label-success.check-in= link_to "Check-in", room.check_in_today
-            - elsif room.check_out_today
-              %span.label.label-warning.check-out= link_to "Check-out", room.check_out_today
-            - elsif room.booked
-              %span.label.label-info.booked= link_to "Booked", room.booked
-            - else
-              %span.label.free Free
-          %td
-            - if room.booked
-              = link_to room.booked.customers.first.initial_name, room.booked.customers.first
-          %td 
-            - if room.booked && !room.booked.companies.empty?
-              = link_to room.booked.companies.first.name, room.booked.companies.first
+#content
+  .row
+    .span10.offset1.button-row
+      = link_to "New Reservation", new_reservation_path, class: "btn pull-left"
+    .span10.offset1
+      %hr
+  .row
+    .span10.offset1
+      %table.table-bordered.table-striped.table.display.dataTables-table
+        %thead
+          %tr
+            %th Room
+            %th Status
+            %th Customer
+            %th Company
+        %tbody
+          - @rooms.each do |room| 
+            %tr
+              %td= link_to room.name, room 
+              %td 
+                - if room.check_in_today
+                  %span.label.label-success.check-in= link_to "Check-in", room.check_in_today
+                - elsif room.check_out_today
+                  %span.label.label-warning.check-out= link_to "Check-out", room.check_out_today
+                - elsif room.booked
+                  %span.label.label-info.booked= link_to "Booked", room.booked
+                - else
+                  %span.label.free Free
+              %td
+                - if room.booked
+                  = link_to room.booked.customers.first.initial_name, room.booked.customers.first
+              %td
+                - if room.booked && !room.booked.companies.empty?
+                  = link_to room.booked.companies.first.name, room.booked.companies.first
