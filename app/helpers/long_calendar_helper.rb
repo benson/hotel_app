@@ -41,22 +41,23 @@ module LongCalendarHelper
 
     def day_cell(day, room)
       if room.check_in_today(day) and room.check_out_today(day)  
-        content_tag :td, {class: "no-padding"}  do
-          link_to room.booked(day), {class: "end-res"} do
+        content_tag :td, {class: "no-padding-both"} do
+          content = link_to room.check_out_today(day), {class: "end-res-both"} do
             content_tag :i, "", class: "icon-signout" 
           end
-          link_to room.booked(day), {class: "start-res"} do
+          content += link_to room.check_in_today(day), {class: "start-res-both"} do
             content_tag :i, "", class: "icon-signin" 
           end
+          content
         end
       elsif room.check_out_today(day)
-        content_tag :td, {class: "no-padding"}  do
+        content_tag :td, {class: "no-padding-left"}  do
           link_to room.booked(day), {class: "end-res"} do
             content_tag :i, "", class: "icon-signout" 
           end
         end
       elsif room.check_in_today(day)
-        content_tag :td, {class: "no-padding"} do
+        content_tag :td, {class: "no-padding-right"} do
           link_to room.booked(day), {class: "start-res"} do
             content_tag :i, "", class: "icon-signin" 
           end
@@ -64,7 +65,7 @@ module LongCalendarHelper
       elsif room.booked(day)
         content_tag :td, {class: "no-padding"}  do
           link_to room.booked(day), {class: "booked"} do
-            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".html_safe
+            ""
           end 
         end
       else
