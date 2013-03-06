@@ -40,9 +40,32 @@ module LongCalendarHelper
     end
 
     def day_cell(day, room)
-      if room.booked(day)
-        content_tag :td, class: day_classes(day) do
-          link_to("Booked", room.booked(day))
+      if room.check_in_today(day) and room.check_out_today(day)  
+        content_tag :td, {class: "no-padding"}  do
+          link_to room.booked(day), {class: "end-res"} do
+            content_tag :i, "", class: "icon-signout" 
+          end
+          link_to room.booked(day), {class: "start-res"} do
+            content_tag :i, "", class: "icon-signin" 
+          end
+        end
+      elsif room.check_out_today(day)
+        content_tag :td, {class: "no-padding"}  do
+          link_to room.booked(day), {class: "end-res"} do
+            content_tag :i, "", class: "icon-signout" 
+          end
+        end
+      elsif room.check_in_today(day)
+        content_tag :td, {class: "no-padding"} do
+          link_to room.booked(day), {class: "start-res"} do
+            content_tag :i, "", class: "icon-signin" 
+          end
+        end
+      elsif room.booked(day)
+        content_tag :td, {class: "no-padding"}  do
+          link_to room.booked(day), {class: "booked"} do
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".html_safe
+          end 
         end
       else
         content_tag :td, "Free", class: day_classes(day)#view.capture(day, &callback), class: day_classes(day)

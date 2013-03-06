@@ -1,6 +1,7 @@
 .long-calendar {
   border-collapse: collapse;
   width: 100%;
+  table-layout: fixed;
 
   td, th {
     font-family: "Lucida Grande", arial, helvetica, sans-serif;
@@ -19,16 +20,62 @@
   td {
     background: #FFF;
     color: #777;
-    height: 80px;
-    vertical-align: top;
-    font-size: 16px;
+    height: 20px;
+    // vertical-align: top;
+    font-size: 12px;
+    width: 6.25%;
   }
 
+  .no-padding{
+      padding: 0;
+      text-align: center;
+  }
   .notmonth, .notmonth a { color: #CCC; }
   .today { background-color: #D7F2FF; }
   .beforetoday { color: #999; }
+
+
+  .start-res{
+    margin-left:50%;
+    text-decoration: none;
+    color: white;
+    background-color: #2ECC71;
+    padding-left: 8px;
+    padding-right: 8px;
+    -webkit-border-top-left-radius: 9px;
+    -webkit-border-bottom-left-radius: 9px;
+    -moz-border-radius-topleft: 9px;
+    -moz-border-radius-bottomleft: 9px;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+  }
+
+  .booked{
+    text-decoration: none;
+    color: white;
+    background-color: #2ECC71;
+    padding-left: 8px;
+    padding-right: 8px;
+    width:100%;
+  }
+
+  .end-res{
+    margin-right:50%;
+    text-decoration: none;
+    color: white;
+    background-color: #2ECC71;
+    padding-left: 8px;
+    padding-right: 8px;
+    -webkit-border-top-right-radius: 9px;
+    -webkit-border-bottom-right-radius: 9px;
+    -moz-border-radius-topright: 9px;
+    -moz-border-radius-bottomright: 9px;
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+  }
 
   .reservation_link{
     font-size: 12px;
   }
 }
+
