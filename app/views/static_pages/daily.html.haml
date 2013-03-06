@@ -21,16 +21,30 @@
               %td= link_to room.name, room 
               %td 
                 - if room.check_in_today
-                  %span.label.label-success.check-in= link_to "Check-in", room.check_in_today
+                  %span.label.label-success.check-in
+                    = link_to room.check_in_today do
+                      %i.icon-signin
+                      Check-in
                 - elsif room.check_out_today
-                  %span.label.label-warning.check-out= link_to "Check-out", room.check_out_today
+                  %span.label.label-warning.check-out
+                    = link_to room.check_out_today do
+                      %i.icon-signout
+                      Check-out
                 - elsif room.booked
-                  %span.label.label-info.booked= link_to "Booked", room.booked
+                  %span.label.label-info.booked
+                    = link_to room.booked do
+                      %i.icon-circle
+                      Booked
                 - else
-                  %span.label.free Free
+                  %span.label.free 
+                    %i.icon-circle-blank
+                    Free
               %td
                 - if room.booked
                   = link_to room.booked.customers.first.initial_name, room.booked.customers.first
               %td
-                - if room.booked && !room.booked.companies.empty?
-                  = link_to room.booked.companies.first.name, room.booked.companies.first
+                - if room.booked
+                  -if room.booked.companies.empty?
+                    No company
+                  -else
+                    =link_to room.booked.companies.first.name, room.booked.companies.first

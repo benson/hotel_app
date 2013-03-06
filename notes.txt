@@ -1,7 +1,6 @@
 TO DO:
-
-1. daily view - sortable headers
-2. calendar view ;___;
+1. full reservation form
+2. attr_accessable - this should be fine, no user access shit yet
 3. services
 4. add customer/company during reservation
 5. reservation needs to say if customer or company is paying
