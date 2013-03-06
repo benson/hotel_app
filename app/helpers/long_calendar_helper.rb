@@ -23,7 +23,9 @@ module LongCalendarHelper
       end
       name_header = content_tag :th, "Room", class: "room-name-header"
       content_tag :tr do
-        name_header + head.map { |day| content_tag :th, day.to_s(:cal) }.join.html_safe   # <th>date</th> all joined
+        name_header + head.map do |day|
+          day == Date.today ? (content_tag :th, day.to_s(:cal), class: "today") : (content_tag :th, day.to_s(:cal))
+        end.join.html_safe   # <th>date</th> all joined
       end
     end
 
@@ -41,7 +43,7 @@ module LongCalendarHelper
 
     def day_cell(day, room)
       if room.check_in_today(day) and room.check_out_today(day)  
-        content_tag :td, {class: "no-padding-both"} do
+        content_tag :td, {class: "no-padding-both" + day_classes(day)} do
           content = link_to room.check_out_today(day), {class: "end-res-both"} do
             content_tag :i, "", class: "icon-signout" 
           end
@@ -51,19 +53,19 @@ module LongCalendarHelper
           content
         end
       elsif room.check_out_today(day)
-        content_tag :td, {class: "no-padding-left"}  do
+        content_tag :td, {class: "no-padding-left" + day_classes(day)}  do
           link_to room.booked(day), {class: "end-res"} do
             content_tag :i, "", class: "icon-signout" 
           end
         end
       elsif room.check_in_today(day)
-        content_tag :td, {class: "no-padding-right"} do
+        content_tag :td, {class: "no-padding-right" + day_classes(day)} do
           link_to room.booked(day), {class: "start-res"} do
             content_tag :i, "", class: "icon-signin" 
           end
         end
       elsif room.booked(day)
-        content_tag :td, {class: "no-padding"}  do
+        content_tag :td, {class: "no-padding" + day_classes(day)}  do
           link_to room.booked(day), {class: "booked"} do
             ""
           end 
@@ -75,10 +77,10 @@ module LongCalendarHelper
 
     def day_classes(day)
       classes = []
-      classes << "beforetoday" if day < Date.today
-      classes << "today" if day == Date.today
-      classes << "notmonth" if day.month != date.month
-      classes.empty? ? nil : classes.join(" ")
+      classes << " beforetoday" if day < Date.today
+      classes << " today" if day == Date.today
+      classes << " notmonth" if day.month != date.month
+      classes.empty? ? "" : classes.join(" ")
     end
   end
 end

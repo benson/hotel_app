@@ -1,15 +1,14 @@
-- provide(:title, 'All Reservations') 
-%h1 All Reservations
+- provide(:header, 'All Reservations') 
 
 / = will_paginate 
-= link_to "New Reservation", new_reservation_path
-%ul.reservations
-  - @reservations.each do |reservation| 
-    %li
-      = link_to reservation_name(reservation), reservation 
-      = link_to "Delete", reservation, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-small"
-      = link_to "Edit", edit_reservation_path(reservation), class: "btn btn-small"
-/ = will_paginate 
+#content
+  .row
+    .span10.offset1.button-row
+      = link_to "New Reservation", new_reservation_path, class: "btn pull-left"
+
+      = link_to "Switch to Table View", "/reservations/table/", class: "btn pull-right"
+    .span10.offset1
+      %hr
 
 #reservations
   %h2#month

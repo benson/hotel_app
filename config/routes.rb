@@ -2,6 +2,7 @@ HotelApp::Application.routes.draw do
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
+  match '/reservations/table', to: 'reservations#table'
   resources :users
   resources :sessions
   resources :customers
@@ -17,6 +18,7 @@ HotelApp::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
   match '/daily', to: 'static_pages#daily'
   match '/quickres', to: 'static_pages#quickres'
+
 
 
   

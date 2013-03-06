@@ -40,6 +40,10 @@ class ReservationsController < ApplicationController
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
+  def table
+    @reservations = Reservation.all
+  end
+
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
