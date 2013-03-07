@@ -30,10 +30,10 @@
               %td= link_to reservation.rooms.first.name, reservation.rooms.first
               %td= link_to reservation.customers.first.initial_name, reservation.customers.first
               %td
-                - if reservation.companies.first.nil?
+                - if reservation.company.nil?
                   No company
                 - else
-                  = link_to reservation.companies.first.name, reservation.companies.first
+                  = link_to reservation.company.name, reservation.company
               %td= link_to "Edit", edit_reservation_path(reservation)
               %td= link_to "Delete", reservation, method: :delete, data: { confirm: "You sure?" }
       / = will_paginate 

@@ -2,16 +2,18 @@
 #
 # Table name: rooms
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :integer          not null, primary key
+#  name         :string(255)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  room_type_id :integer
 #
 
 class Room < ActiveRecord::Base
-  has_and_belongs_to_many :room_types
+  belongs_to :room_type
+  has_many :customers, :through => :reservations
   has_and_belongs_to_many :reservations
-  attr_accessible :name, :room_type_ids
+  attr_accessible :name, :room_type_id, :reservation_ids
 
   def booked(date = Date.today)
     res = reservations.where("start_date <= ? AND end_date >= ?", date, date)

@@ -5,7 +5,7 @@
         %li{class: "#{'active' if params[:action] == 'quickres'}"}
           = link_to quickres_path do
             %i.icon-star
-            Quick Reservation 
+            Quick Res
         %li{class: "#{'active' if params[:action] == 'daily'}"}
           = link_to daily_path do
             %i.icon-time
@@ -26,6 +26,10 @@
           = link_to customers_path do
             %i.icon-group
             Customers
+        %li{class: "#{'active' if params[:controller] == 'companies'}"}
+          = link_to companies_path do
+            %i.icon-briefcase
+            Companies
         %li
           = link_to "#" do
             %i.icon-food

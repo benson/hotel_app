@@ -10,8 +10,8 @@
 #
 
 class Company < ActiveRecord::Base
-  has_and_belongs_to_many :customers
-  has_and_belongs_to_many :reservations
+  has_many :customers
+  has_many :reservations
   attr_accessible :name, :number
   
   validates :name, :uniqueness => true

@@ -20,6 +20,6 @@
           - @rooms.each do |room| 
             %tr
               %td= link_to room.name, room 
-              %td= link_to room.room_types.first.name, room.room_types.first
+              %td= link_to room.room_type.name, room.room_type
               %td= link_to "Edit", edit_room_path(room)
               %td= link_to "Delete", room, method: :delete, data: { confirm: "You sure?" }

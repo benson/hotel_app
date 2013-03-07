@@ -15,13 +15,13 @@
       = f.label :address_line_2, 'City'
       = f.text_field :address_line_2
       = f.label :address_line_3, 'Country'
-      = f.country_select :address_line_3
+      = f.country_select :address_line_3, {}, {class: "chzn-select"}
       %legend.with-small
         Edit Customer Company
         %br
         %small Set to blank to remove company or if creating a new company
       = f.label :company, "Current Company"
-      = f.collection_select(:company_ids, Company.all, :id, :name, {include_blank: true})
+      = f.collection_select :company_id, Company.all, :id, :name, {include_blank: true}, {class: "chzn-select", :'data-placeholder' => "None"}
       %legend.with-small
         Change to New Company
         %br

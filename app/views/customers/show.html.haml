@@ -2,7 +2,7 @@
 %ul
   %li= @customer.full_name
   %li= @customer.number
-  - unless @customer.companies.first.nil?
-    %li= link_to @customer.companies.first.name, @customer.companies.first
+  - unless @customer.company.nil?
+    %li= link_to @customer.company.name, @customer.company
 
 = link_to "Back", customers_path, class: "btn btn-large"

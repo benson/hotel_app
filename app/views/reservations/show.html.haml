@@ -6,6 +6,7 @@
     %li= customer.full_name
   - @reservation.rooms.each do |room|
     %li= room.name
-  %li= @reservation.companies.first.name
+  - unless @reservation.company.nil?
+    %li= @reservation.company.name
 
 = link_to "Back", :back, class: "btn btn-large"

@@ -11,6 +11,7 @@
 #  address_line_1 :string(255)
 #  address_line_2 :string(255)
 #  address_line_3 :string(255)
+#  company_id     :integer
 #
 
 require 'spec_helper'

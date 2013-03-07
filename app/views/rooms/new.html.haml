@@ -7,7 +7,7 @@
       = f.label :name 
       = f.text_field :name 
       = f.label :room_type
-      = f.collection_select(:room_type_ids, RoomType.all, :id, :name, {style: "padding: 0px"})
+      = f.collection_select(:room_type_id, RoomType.all, :id, :name, {style: "padding: 0px"})
 
       = f.submit "Create Room!", class: "btn btn-large btn-primary"
       = link_to "Back", :back, class: "btn btn-large pull-right"

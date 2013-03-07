@@ -22,10 +22,10 @@
             %tr
               %td= link_to customer.full_name, customer 
               %td
-                - if customer.companies.first.nil?
+                - if customer.company.nil?
                   No company
                 - else
-                  = link_to customer.companies.first.name, customer.companies.first
+                  = link_to customer.company.name, customer.company
               %td= link_to "Edit", edit_customer_path(customer)
               %td= link_to "Delete", customer, method: :delete, data: { confirm: "You sure?" }
       / = will_paginate 

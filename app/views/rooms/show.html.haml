@@ -1,7 +1,7 @@
 - provide(:title, @room.name)
 %ul
   %li= @room.name
-  %li= @room.room_types.first.name
+  %li= @room.room_type.name
 
 = link_to "Back", :back, class: "btn btn-large"
 
