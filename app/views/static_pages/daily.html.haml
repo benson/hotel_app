@@ -44,7 +44,7 @@
                   = link_to room.booked.customers.first.initial_name, room.booked.customers.first
               %td
                 - if room.booked
-                  -if room.booked.companies.empty?
+                  -if room.booked.company.nil?
                     No company
                   -else
-                    =link_to room.booked.companies.first.name, room.booked.companies.first
+                    =link_to room.booked.company.name, room.booked.company

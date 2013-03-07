@@ -1,9 +1,8 @@
 TO DO:
 1. full reservation form
-2. attr_accessable - this should be fine, no user access shit yet
-3. services
-4. add customer/company during reservation
-5. reservation needs to say if customer or company is paying
+2. services
+3. reservation needs to say if customer or company is paying
+4. user shit
 
 you could then iterate through your array of dates (first to create the headers) and then rooms times to fill the rows. 
 then just check the hash if it gives you the current room for the current date.
