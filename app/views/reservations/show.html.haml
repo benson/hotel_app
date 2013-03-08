@@ -24,7 +24,7 @@
             %td{colspan:"2"}= @reservation.end_date.to_s(:rfc822)
           %tr
             %td{colspan:"2"}Company
-            %td{colspan:"2"}= @reservation.company.nil? ? "No company" : @reservation.company 
+            %td{colspan:"2"}= @reservation.company.nil? ? "No company" : (link_to @reservation.company.name, @reservation.company)
 
     = link_to "Back", :back, class: "btn btn-large pull-left"
     = link_to "Edit", edit_reservation_path, class: "btn btn-large pull-right"
