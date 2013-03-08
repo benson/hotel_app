@@ -12,7 +12,7 @@
 class Room < ActiveRecord::Base
   belongs_to :room_type
   has_many :customers, :through => :reservations
-  has_and_belongs_to_many :reservations
+  has_many :reservations
   attr_accessible :name, :room_type_id, :reservation_ids
 
   def booked(date = Date.today)

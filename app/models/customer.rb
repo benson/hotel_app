@@ -31,4 +31,12 @@ class Customer < ActiveRecord::Base
   def initial_name
     "#{first_name.first}. #{last_name}"
   end
+
+  def both
+    "#{first_name} #{last_name}"
+  end
+
+  def one_line_address
+    "#{address_line_1}, #{address_line_2}, #{address_line_3}"
+  end
 end

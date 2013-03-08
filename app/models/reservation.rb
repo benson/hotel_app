@@ -11,13 +11,12 @@
 
 class Reservation < ActiveRecord::Base
   has_and_belongs_to_many :customers
-  has_and_belongs_to_many :rooms
+  belongs_to :room
   belongs_to :company
-  # has_many :occupants, class_name: "Customer"
   
-  attr_accessible :end_date, :start_date, :customer_ids, :room_ids, :company_id#, :occupants
+  attr_accessible :end_date, :start_date, :customer_ids, :room_id, :company_id
 
   def full_name
-    "#{start_date} - #{end_date} for #{customers.first.full_name}"
+    "#{start_date.to_s(:rfc822)} - #{end_date.to_s(:rfc822)} for #{customers.first.initial_name}"
   end
 end

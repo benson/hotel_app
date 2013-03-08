@@ -2,11 +2,16 @@ $iconSpritePath: '';
 $iconWhiteSpritePath: '';
 
 @import "bootstrap";
+@import "font-awesome";
 
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
 $whiteSmoke: #F5F5F5;
+
+ [class^="icon-"], [class*=" icon-"]{
+    background:none;
+  }
 
 @mixin box_sizing {
   -moz-box-sizing: border-box; 

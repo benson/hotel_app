@@ -50,7 +50,7 @@ gem 'jquery-ui-rails'
 gem 'carmen-rails'
 
 # icons
-gem 'font-awesome-rails'
+gem 'font-awesome-sass-rails'
 
 # foreign keys
 gem 'immigrant'

@@ -1,0 +1,31 @@
+.notecard{
+  padding-top: 20px;
+
+    .nameplate{
+    text-align: center;
+    font-size: 30px;
+    vertical-align: middle;
+  }
+  
+  table{
+    table-layout: fixed;
+    border-collapse: collapse;
+    width:100%;
+
+    td, th{
+    text-overflow: ellipsis;
+    max-height: 37px;
+    overflow: hidden;
+    white-space: nowrap;
+
+    }
+  }
+
+
+  .header-icon{
+    font-size: 40px;
+    width: 60px;
+    text-align: center;
+  }
+
+}

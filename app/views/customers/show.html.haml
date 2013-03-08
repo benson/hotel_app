@@ -1,8 +1,27 @@
 - provide(:title, @customer.initial_name)
-%ul
-  %li= @customer.full_name
-  %li= @customer.number
-  - unless @customer.company.nil?
-    %li= link_to @customer.company.name, @customer.company
 
-= link_to "Back", customers_path, class: "btn btn-large"
+.row
+  .span6.offset3
+    .notecard
+      %table.table.table-striped.table-bordered
+        %thead
+          %tr
+            %th.header-icon#user
+              %i.icon-user
+            %th.nameplate{colspan:"3"}= @customer.both
+        %tbody
+          %tr
+            %td{colspan:"2"}Name
+            %td{colspan:"2"}= @customer.both
+          %tr
+            %td{colspan:"2"}Address
+            %td{colspan:"2"}= @customer.one_line_address
+          %tr
+            %td{colspan:"2"}DNI/Passport Number
+            %td{colspan:"2"}= @customer.number
+          %tr
+            %td{colspan:"2"}Company
+            %td{colspan:"2"}= @customer.company.nil? ? "No company" : @customer.company 
+       
+
+    = link_to "Back", customers_path, class: "btn btn-large"

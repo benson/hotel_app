@@ -1,8 +1,27 @@
-- provide(:title, @room.name)
-%ul
-  %li= @room.name
-  %li= @room.room_type.name
+.row
+  .span6.offset3
+    .notecard
+      %table.table.table-striped.table-bordered
+        %thead
+          %tr
+            %th.header-icon#user
+              %i.icon-home
+            %th.nameplate{colspan:"3"}= @room.name
+        %tbody
+          %tr
+            %td{colspan:"2"}Name
+            %td{colspan:"2"}= @room.name
+          %tr
+            %td{colspan:"2"}Type
+            %td{colspan:"2"}= link_to @room.room_type.name, @room.room_type
+          %tr
+            %td{colspan:"2"}Rate
+            %td{colspan:"2"}= number_to_currency(@room.room_type.price, precision: 2, :locale => "es-PE")
+          %tr
+            %td{colspan:"2"}Guests
+            %td{colspan:"2"}= @room.room_type.spaces
 
+       
 = link_to "Back", :back, class: "btn btn-large"
 
 #reservations
