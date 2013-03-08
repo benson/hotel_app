@@ -18,18 +18,19 @@ class Room < ActiveRecord::Base
   accepts_nested_attributes_for :room_type, reject_if: proc { |attributes| attributes['name'].blank? }
 
   def booked(date = Date.today)
+    date = Date.new(date)
     res = reservations.where("start_date <= ? AND end_date >= ?", date, date)
     res.empty? ? nil : res.first
   end
 
-
-
   def check_in_today(date = Date.today)
+    date = Date.new(date)
     res = reservations.where("start_date == ?", date)
     res.empty? ? nil : res.first
   end
 
   def check_out_today(date = Date.today)
+    date = Date.new(date)
     res = reservations.where("end_date == ?", date)
     res.empty? ? nil : res.first
   end
