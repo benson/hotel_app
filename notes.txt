@@ -3,6 +3,7 @@ TO DO:
 2. services
 3. reservation needs to say if customer or company is paying
 4. user shit
+5. for new/existing, javascript toggle, clear boxes on toggle
 
 you could then iterate through your array of dates (first to create the headers) and then rooms times to fill the rows. 
 then just check the hash if it gives you the current room for the current date.

@@ -1,0 +1,24 @@
+- provide(:header, 'All Services') 
+
+#content
+  .row
+    .span10.offset1.button-row
+      = link_to "New Service", new_service_path, class: "btn pull-left"
+    .span10.offset1
+      %hr
+  .row
+    .span10.offset1
+      %table.table-bordered.table-striped.table.display.dataTables-table
+        %thead
+          %tr
+            %th Name
+            %th Rate
+            %th Edit
+            %th Delete
+        %tbody
+          - @services.each do |service| 
+            %tr
+              %td= link_to service.name, service 
+              %td= number_to_currency(service.price, precision: 2, :locale => "es-PE")
+              %td= link_to "Edit", edit_service_path(service)
+              %td= link_to "Delete", service, method: :delete, data: { confirm: "You sure?" }

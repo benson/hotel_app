@@ -22,7 +22,8 @@
             %td{colspan:"2"}= @room.room_type.spaces
 
        
-= link_to "Back", :back, class: "btn btn-large"
+    = link_to "Back", :back, class: "btn btn-large"
+    = link_to "Edit", edit_room_path, class: "btn btn-large pull-right"
 
 #reservations
   %h2#month

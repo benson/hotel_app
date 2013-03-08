@@ -2,10 +2,12 @@ class ReservationsController < ApplicationController
   layout "webapp"
   def new
     @reservation = Reservation.new
+    @reservation.customers.build
   end
 
   def create
     @reservation = Reservation.new(params[:reservation])
+    @customer = @reservation.customers.build(params[:customer]) unless params[:customer][:first_name].blank?
     if @reservation.save
       flash[:success] = "Successfully added #{@reservation.full_name}!"
       redirect_to reservations_path

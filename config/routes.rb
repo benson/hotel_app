@@ -1,4 +1,7 @@
 HotelApp::Application.routes.draw do
+  resources :services
+
+
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
@@ -12,7 +15,7 @@ HotelApp::Application.routes.draw do
   resources :reservations
 
 
-  root to: 'static_pages#home'
+  root to: 'static_pages#daily'
   match '/help', to: 'static_pages#help'
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'

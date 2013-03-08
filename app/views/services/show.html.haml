@@ -1,0 +1,23 @@
+.row
+  .span6.offset3
+    .notecard
+      %table.table.table-striped.table-bordered
+        %thead
+          %tr
+            %th.header-icon#user
+              %i.icon-food
+            %th.nameplate{colspan:"3"}= @service.name
+        %tbody
+          %tr
+            %td{colspan:"2"}Name
+            %td{colspan:"2"}= @service.name
+          %tr
+            %td{colspan:"2"}Rate
+            %td{colspan:"2"}= number_to_currency(@service.price, precision: 2, :locale => "es-PE")
+          %tr
+            %td{colspan:"2"}Description
+            %td{colspan:"2"}= @service.desc
+       
+
+    = link_to "Back", services_path, class: "btn btn-large"
+    = link_to "Edit", edit_service_path, class: "btn btn-large pull-right"

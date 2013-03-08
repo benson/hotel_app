@@ -26,4 +26,5 @@
             %td{colspan:"2"}Company
             %td{colspan:"2"}= @reservation.company.nil? ? "No company" : @reservation.company 
 
-= link_to "Back", :back, class: "btn btn-large"
+    = link_to "Back", :back, class: "btn btn-large pull-left"
+    = link_to "Edit", edit_reservation_path, class: "btn btn-large pull-right"

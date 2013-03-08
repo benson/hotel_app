@@ -19,10 +19,12 @@ class Customer < ActiveRecord::Base
   has_many :rooms, :through => :reservations
   has_and_belongs_to_many :reservations
   
-  attr_accessible :company, :first_name, :last_name, :number, :company_id, :address_line_3, :address_line_2, :address_line_1, :reservation_ids
+  attr_accessible :company, :first_name, :last_name, :number, :company_id, :address_line_3, :address_line_2, :address_line_1, :reservation_ids, :company_attributes
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates_numericality_of :number, :only_integer => true
+
+  accepts_nested_attributes_for :company, reject_if: proc { |attributes| attributes['name'].blank? }
 
   def full_name
     "#{last_name}, #{first_name}"

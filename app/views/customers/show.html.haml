@@ -21,7 +21,8 @@
             %td{colspan:"2"}= @customer.number
           %tr
             %td{colspan:"2"}Company
-            %td{colspan:"2"}= @customer.company.nil? ? "No company" : @customer.company 
+            %td{colspan:"2"}= @customer.company.nil? ? "No company" : (link_to @customer.company.name, @customer.company)
        
 
     = link_to "Back", customers_path, class: "btn btn-large"
+    = link_to "Edit", edit_customer_path, class: "btn btn-large pull-right"

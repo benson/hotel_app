@@ -6,8 +6,21 @@
       = render 'shared/error_messages', object: f.object
       = f.label :name 
       = f.text_field :name 
+      %legend 
+        Existing Room Type
+        %small.pull-right Leave blank if creating a new room type
       = f.label :room_type
-      = f.collection_select(:room_type_id, RoomType.all, :id, :name, {style: "padding: 0px"})
+      = f.collection_select(:room_type_id, RoomType.all, :id, :name, {include_blank: true}, {style: "padding: 0px", class: "chzn-select", :'data-placeholder' => "Blank"})
+      %legend
+        New Room Type
+        %small.pull-right Fill in to create a new type of room
+      =f.fields_for :room_type do |builder|
+        = builder.label :name, "New Room Type Name"
+        = builder.text_field :name
+        = builder.label :price, "New Room Type Price"
+        = builder.text_field :price
+        = builder.label :spaces, "New Room Type Guests"
+        = builder.text_field :spaces
 
       = f.submit "Create Room!", class: "btn btn-large btn-primary"
       = link_to "Back", :back, class: "btn btn-large pull-right"

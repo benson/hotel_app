@@ -2,10 +2,15 @@ class RoomsController < ApplicationController
   layout "webapp"
   def new
     @room = Room.new
+    @room.build_room_type
   end
 
   def create
     @room = Room.new(params[:room])
+    if !params[:room][:room_type_id].empty? && !params[:room][:room_type_attributes][:name].empty?
+      flash[:warning] = "You can't select an existing room type and create a new one at the same time."
+      render :new and return
+    end
     if @room.save
       flash[:success] = "Successfully added #{@room.name}!"
       redirect_to rooms_path

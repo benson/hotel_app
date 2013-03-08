@@ -10,7 +10,7 @@
     .container
       - flash.each do |key, value| 
         .alert{class: "alert-#{key}"} #{value}
-      = render 'layouts/header' 
+      / = render 'layouts/header' 
       .row
         .span12#menubar
           = render 'layouts/menubar'

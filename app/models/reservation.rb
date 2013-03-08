@@ -11,9 +11,9 @@
 
 class Reservation < ActiveRecord::Base
   has_and_belongs_to_many :customers
+  has_and_belongs_to_many :services
   belongs_to :room
   belongs_to :company
-  
   attr_accessible :end_date, :start_date, :customer_ids, :room_id, :company_id
 
   def full_name
