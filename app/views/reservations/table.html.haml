@@ -27,8 +27,8 @@
           - @reservations.each do |reservation| 
             %tr
               %td= link_to reservation.full_name, reservation
-              %td= link_to reservation.start_date.to_s(:rfc822), reservation
-              %td= link_to reservation.end_date.to_s(:rfc822), reservation
+              %td= reservation.start_date.to_s(:rfc822)
+              %td= reservation.end_date.to_s(:rfc822)
               %td= link_to reservation.room.name, reservation.room
               %td= link_to reservation.customers.first.initial_name, reservation.customers.first
               %td

@@ -16,7 +16,6 @@
 
 class Customer < ActiveRecord::Base
   belongs_to :company
-  has_many :rooms, :through => :reservations
   has_and_belongs_to_many :reservations
   
   attr_accessible :company, :first_name, :last_name, :number, :company_id, :address_line_3, :address_line_2, :address_line_1, :reservation_ids, :company_attributes
