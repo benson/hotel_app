@@ -13,7 +13,7 @@ HotelApp::Application.routes.draw do
   resources :room_types
   resources :companies
   resources :reservations
-
+  resources :receipts
 
   root to: 'static_pages#daily'
   match '/help', to: 'static_pages#help'

@@ -1,0 +1,74 @@
+.row
+  .span6.offset3
+    .notecard
+      %table.table.table-striped.table-bordered
+        %thead
+          %tr
+            %th.nameplate{colspan:"2"}= "Reservation Info" 
+          %tbody
+            %tr
+              %td Reservation
+              %td= link_to @reservation.full_name, @reservation
+            %tr
+              %td Start Date
+              %td= @reservation.start_date
+            %tr
+              %td End Date
+              %td= @reservation.end_date
+            %tr
+              %td Room
+              %td= link_to @reservation.room.name, @reservation.room
+            %tr
+              %td Rate
+              %td= number_to_currency(@reservation.room.room_type.price, precision: 2, :locale => "es-PE") + " per night"
+            
+.row
+  .span6.offset3
+    .notecard#receipt
+      = form_for @receipt do |f| 
+        = render 'shared/error_messages', object: f.object
+        %table.table.table-striped.table-bordered
+          %thead
+            %tr
+              %th.nameplate{colspan:"2"}= "Receipt" 
+            %tbody
+              %tr
+                %td Room Fees                
+                %td= number_to_currency(@reservation.room_price, precision: 2, :locale => "es-PE")
+              %tr
+                %td Service Fees
+                %td= number_to_currency(@reservation.service_fees, precision: 2, :locale => "es-PE")
+              %tr
+                %td Total Price
+                %td= number_to_currency(@reservation.total_price, precision: 2, :locale => "es-PE")
+              %tr
+                %td= f.label :discount
+                %td 
+                  .input-append{style: "margin-bottom: 0"}
+                    = f.text_field :discount, {style:"width: 186px"}
+                    %span.add-on %  
+              %tr
+                %td Date Paid
+                %td= Date.today
+              - if !@reservation.company.nil?
+                %tr
+                  %td Company Paying
+                  %td= link_to @reservation.company.name, @reservation.company
+                %tr 
+                  %td= f.label :factura_num, "Factura Number"
+                  %td= f.text_field :factura_num
+              - else
+                %tr
+                  %td Customer Paying
+                  %td= f.collection_select :customer_id, @reservation.customers, :id, :full_name, {include_blank: false}, {class: "chzn-select", :'data-placeholder' => "Select the paying customer", multiple: false}
+                %tr 
+                  %td= f.label :receipt_num, "Receipt Number"
+                  %td= f.text_field :receipt_num
+              
+
+
+        = f.hidden_field :reservation_id, value: @reservation.id
+        = f.hidden_field :date_paid, value: Date.today
+        = f.hidden_field :price, value: @reservation.total_price
+        = f.submit "Create Receipt!", class: "btn btn-large btn-primary"
+        = link_to "Back", receipts_path, class: "btn btn-large pull-right"

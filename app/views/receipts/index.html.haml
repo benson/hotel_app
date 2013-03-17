@@ -1,0 +1,23 @@
+- provide(:header, 'All Receipts') 
+
+#content
+  .row
+    .span10.offset1
+      %hr
+    .span10.offset1
+      %table.table-bordered.table-striped.table.display.dataTables-table
+        %thead
+          %tr
+            %th View
+            %th Reservation
+            %th Price
+            %th Date Paid
+            %th Edit
+        %tbody
+          - @receipts.each do |receipt| 
+            %tr
+              %td= link_to "View Receipt", receipt
+              %td= link_to receipt.reservation.full_name, receipt.reservation
+              %td= number_to_currency(receipt.price, precision: 2, :locale => "es-PE")
+              %td= receipt.date_paid
+              %td= link_to "Edit", edit_receipt_path(receipt)

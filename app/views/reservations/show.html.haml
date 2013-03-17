@@ -25,6 +25,22 @@
           %tr
             %td{colspan:"2"}Company
             %td{colspan:"2"}= @reservation.company.nil? ? "No company" : (link_to @reservation.company.name, @reservation.company)
+          %tr
+            %td{colspan:"2"}Services
+            -if @reservation.services.empty?
+              %td{colspan:"2"} No services
+            -else
+              %td{colspan:"2"}
+                - @reservation.services.each do |service| 
+                  = link_to service.name, service
+
+          %tr
+            %td{colspan:"2"}Status
+            -if @reservation.paid?
+              %td{colspan:"2"}= link_to "Paid on #{@reservation.receipt.date_paid}", @reservation.receipt
+            -else 
+              %td{colspan:"2"}= link_to "Pay now", new_receipt_path(reservation_id: @reservation.id)
+
 
     = link_to "Back", :back, class: "btn btn-large pull-left"
     = link_to "Edit", edit_reservation_path, class: "btn btn-large pull-right"

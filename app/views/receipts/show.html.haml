@@ -1,0 +1,52 @@
+.row
+  .span6.offset3
+    .notecard#receipt
+      %table.table.table-striped.table-bordered
+        %thead
+          %tr
+            %th.nameplate{colspan:"2"}= "Receipt" 
+          %tbody
+            %tr
+              %td Reservation
+              %td= link_to @reservation.full_name, @reservation
+            %tr
+              %td Room Fees
+              %td= number_to_currency(@reservation.room_price, precision: 2, :locale => "es-PE")
+            %tr
+              %td Service Fees
+              %td= number_to_currency(@reservation.service_fees, precision: 2, :locale => "es-PE")
+            - if @receipt.discount.nil?
+              %tr
+                %td Total Price
+                %td= number_to_currency(@receipt.price, precision: 2, :locale => "es-PE")
+            - else
+              %tr
+                %td Subtotal
+                %td= number_to_currency(@reservation.total_price, precision: 2, :locale => "es-PE")
+              %tr
+                %td Discount
+                %td= @receipt.discount.round(2).to_s + "%"
+              %tr
+                %td Total Price
+                %td= number_to_currency(@receipt.price, precision: 2, :locale => "es-PE")
+            %tr
+              %td Date Paid
+              %td= @receipt.date_paid
+            - if !@reservation.company.nil?
+              %tr
+                %td Company Paying
+                %td= link_to @reservation.company.name, @reservation.company
+              %tr 
+                %td Factura Number
+                %td= @receipt.factura_num
+            - else
+              %tr
+                %td Customer Paying
+                %td= link_to @receipt.customer.initial_name, @receipt.customer
+              %tr 
+                %td Receipt Number
+                %td= @receipt.receipt_num
+       
+
+    = link_to "Back", receipts_path, class: "btn btn-large"
+    = link_to "Edit", edit_receipt_path, class: "btn btn-large pull-right"

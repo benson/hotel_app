@@ -1,11 +1,7 @@
 %header.navbar
   %nav.navbar-inner
     %nav
-      %ul.nav
-        %li{class: "#{'active' if params[:action] == 'quickres'}"}
-          = link_to "#" do
-            %i.icon-star
-            Quick Res
+      %ul.nav        
         %li{class: "#{'active' if params[:action] == 'daily'}"}
           = link_to daily_path do
             %i.icon-time
@@ -34,3 +30,7 @@
           = link_to services_path do
             %i.icon-food
             Services        
+        %li{class: "#{'active' if params[:controller] == 'receipts'}"}
+          = link_to receipts_path do
+            %i.icon-file-alt
+            Receipts
