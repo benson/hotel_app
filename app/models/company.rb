@@ -17,4 +17,5 @@ class Company < ActiveRecord::Base
   validates :name, :uniqueness => true
   validates :name, presence: true
   validates_numericality_of :number, :only_integer => true
+  validates :name, :length => {maximum: 80}
 end

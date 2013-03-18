@@ -14,6 +14,7 @@ class Room < ActiveRecord::Base
   has_many :customers, :through => :reservations
   has_many :reservations
   attr_accessible :name, :room_type_id, :reservation_ids, :room_type_attributes
+  validates :name, :length => {maximum: 40}
 
   accepts_nested_attributes_for :room_type, reject_if: proc { |attributes| attributes['name'].blank? }
 

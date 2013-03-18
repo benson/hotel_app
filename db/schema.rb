@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130317020842) do
+ActiveRecord::Schema.define(:version => 20130318195009) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
-    t.integer  "number"
+    t.string   "number"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20130317020842) do
   create_table "customers", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "number"
+    t.string   "number"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.string   "address_line_1"
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(:version => 20130317020842) do
 
   create_table "receipts", :force => true do |t|
     t.date     "date_paid"
-    t.integer  "factura_num"
-    t.integer  "receipt_num"
+    t.string   "factura_num"
+    t.string   "receipt_num"
     t.integer  "reservation_id"
     t.integer  "customer_id"
     t.integer  "company_id"

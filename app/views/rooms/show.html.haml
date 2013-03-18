@@ -22,8 +22,12 @@
             %td{colspan:"2"}= @room.room_type.spaces
 
        
-    = link_to "Back", :back, class: "btn btn-large"
-    = link_to "Edit", edit_room_path, class: "btn btn-large pull-right"
+    = link_to @room, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right" do
+      %i.icon-minus-sign
+      Delete
+    = link_to edit_room_path, class: "btn pull-left" do
+      %i.icon-edit
+      Edit
 
 #reservations
   %h2#month

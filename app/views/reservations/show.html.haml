@@ -42,5 +42,9 @@
               %td{colspan:"2"}= link_to "Pay now", new_receipt_path(reservation_id: @reservation.id)
 
 
-    = link_to "Back", :back, class: "btn btn-large pull-left"
-    = link_to "Edit", edit_reservation_path, class: "btn btn-large pull-right"
+    = link_to @reservation, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right" do
+      %i.icon-minus-sign
+      Delete
+    = link_to edit_reservation_path, class: "btn pull-left" do
+      %i.icon-edit
+      Edit
