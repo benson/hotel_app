@@ -1,21 +1,21 @@
 - provide(:header, 'All Reservations') 
 
-/ = will_paginate 
-#content
-  .row
-    .span10.offset1.button-row
-      = link_to "New Reservation", new_reservation_path, class: "btn pull-left"
+.row
+  .span10.offset1.button-row
+    = link_to "New Reservation", new_reservation_path, class: "btn pull-left"
 
-      = link_to "Switch to Table View", "/reservations/table/", class: "btn pull-right"
-    .span10.offset1
-      %hr
+    = link_to "Switch to Table View", "/reservations/table/", class: "btn pull-right"
+  .span9.offset3
+    %hr
 
-#reservations
-  %h2#month
-    = link_to "<", date: @date - 1.week 
-    = @date.strftime("%B %Y") 
-    = link_to ">", date: @date + 1.week
-  #long-calendar
-    = long_calendar(@date,@rooms) do |date| 
-      = date.day 
+.row
+  .span10.offset1
+    #reservations
+      %h2#month
+        = link_to "<", date: @date - 1.week 
+        = @date.strftime("%B %Y") 
+        = link_to ">", date: @date + 1.week
+      #long-calendar
+        = long_calendar(@date,@rooms) do |date| 
+          = date.day 
    

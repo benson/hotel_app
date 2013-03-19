@@ -1,0 +1,91 @@
+@mixin box_sizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+// "the real app"
+div#main-pane {
+  // padding:10px;
+  width: 942px;
+  border: 1px solid #E3E3E3;
+  border-top: none;
+  background-color:white; 
+  min-height:800px;
+  @include box_sizing;
+}
+
+$borderColor: #D5D9D9;
+$menuBackgroundColor: #EEF2F2;
+$menuLinkColor: #8DA0B2;
+$menuLinkHoverColor:#5B6773;
+#menu{
+  width: 100%;
+  text-align: justify;
+  -ms-text-justify: distribute-all-lines;
+  text-justify: distribute-all-lines;
+  padding: 0;
+  margin: 0;
+  height: 60px;
+  border: 1px solid $borderColor;
+  background-color: $menuBackgroundColor;
+
+
+  a{
+    font-size: 14px;
+    line-height: 60px;
+    color: $menuLinkColor;
+    
+    &:hover{
+      text-decoration: none;
+      color: $menuLinkHoverColor;
+    }
+  } 
+
+  li{
+    display: inline-block;
+    width: auto;
+    *display: inline;
+    zoom: 1;
+    margin: 0 17px;
+    height: 60px;
+    text-align: center;
+    position: relative;
+    &.active{
+      font-weight: bold;
+      color: $menuLinkHoverColor;
+
+      &:before, &:after{
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+      &:after {
+        border-color: rgba(255, 255, 255, 0);
+        border-bottom-color: white;
+        border-width: 12px;
+        left: 50%;
+        top: 17px;
+        margin-left: -12px;
+      }
+      &:before {
+        border-color: rgba(213, 217, 217, 0);
+        border-bottom-color: $borderColor;
+        border-width: 13px;
+        left: 50%;
+        top: 15px;
+        margin-left: -13px;
+      }
+    }
+  }
+  &.strecther{
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+  }
+}
+
+

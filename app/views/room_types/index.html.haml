@@ -1,26 +1,21 @@
 - provide(:header, 'All Rates') 
 
-#content
-  .row
-    .span10.offset1.button-row
-      = link_to "New Room Type", new_room_type_path, class: "btn pull-left"
-    .span10.offset1
-      %hr
-  .row
-    .span10.offset1
-      %table.table-bordered.table-striped.table.display.dataTables-table
-        %thead
+.row
+  .span10.offset1.button-row
+    = link_to "New Room Type", new_room_type_path, class: "btn pull-left"
+  .span10.offset1
+    %hr
+.row
+  .span10.offset1
+    %table.table-bordered.table-striped.table.display.dataTables-table
+      %thead
+        %tr
+          %th Name
+          %th Rate
+          %th Guests
+      %tbody
+        - @room_types.each do |room_type| 
           %tr
-            %th Name
-            %th Rate
-            %th Guests
-            %th Edit
-            %th Delete
-        %tbody
-          - @room_types.each do |room_type| 
-            %tr
-              %td= link_to room_type.name, room_type 
-              %td= number_to_currency(room_type.price, precision: 2, :locale => "es-PE")
-              %td= room_type.spaces
-              %td= link_to "Edit", edit_room_type_path(room_type)
-              %td= link_to "Delete", room_type, method: :delete, data: { confirm: "You sure?" }
+            %td= link_to room_type.name, room_type 
+            %td= number_to_currency(room_type.price, precision: 2, :locale => "es-PE")
+            %td= room_type.spaces

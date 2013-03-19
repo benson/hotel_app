@@ -1,25 +1,20 @@
 - provide(:header, 'All rooms') 
  
-#content
-  .row
-    .span10.offset1.button-row
-      = link_to "New Room", new_room_path, class: "btn pull-left"
-    .span10.offset1
-      %hr
+.row
+  .span10.offset1.button-row
+    = link_to "New Room", new_room_path, class: "btn pull-left"
+  .span10.offset1
+    %hr
 
-  .row
-    .span10.offset1
-      %table.table-bordered.table-striped.table.display.dataTables-table
-        %thead
+.row
+  .span10.offset1
+    %table.table-bordered.table-striped.table.display.dataTables-table
+      %thead
+        %tr
+          %th Name
+          %th Room Type
+      %tbody
+        - @rooms.each do |room| 
           %tr
-            %th Name
-            %th Room Type
-            %th Edit
-            %th Delete
-        %tbody
-          - @rooms.each do |room| 
-            %tr
-              %td= link_to room.name, room 
-              %td= link_to room.room_type.name, room.room_type
-              %td= link_to "Edit", edit_room_path(room)
-              %td= link_to "Delete", room, method: :delete, data: { confirm: "You sure?" }
+            %td= link_to room.name, room 
+            %td= link_to room.room_type.name, room.room_type

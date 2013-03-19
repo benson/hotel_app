@@ -29,13 +29,15 @@
       %i.icon-edit
       Edit
 
-#reservations
-  %h2#month
-    = link_to "<", date: @date - 1.week
-    = @date.strftime("%B %Y") 
-    = link_to ">", date: @date + 1.week
-  = calendar @date do |date| 
-    = date.day 
-    - if @all_reservations.include?(date) 
-      - @res_by_date[date.to_s].each do |res|
-        .reservation_link= link_to "#{res.customers.first.full_name}", res
+.row
+  .span8.offset2
+    #reservations
+      %h2#month
+        = link_to "<", date: @date - 1.week
+        = @date.strftime("%B %Y") 
+        = link_to ">", date: @date + 1.week
+      = calendar @date do |date| 
+        = date.day 
+        - if @all_reservations.include?(date) 
+          - @res_by_date[date.to_s].each do |res|
+            .reservation_link= link_to "#{res.customers.first.initial_name}", res

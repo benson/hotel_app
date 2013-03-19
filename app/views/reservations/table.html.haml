@@ -1,41 +1,34 @@
 - provide(:header, 'All Reservations') 
 
-/ = will_paginate 
-#content
-  .row
-    .span10.offset1.button-row
-      = link_to "New Reservation", new_reservation_path, class: "btn pull-left"
+.row
+  .span10.offset1.button-row
+    = link_to "New Reservation", new_reservation_path, class: "btn pull-left"
 
-      = link_to "Switch to Calendar View", "/reservations", class: "btn pull-right"
-    .span10.offset1
-      %hr
+    = link_to "Switch to Calendar View", "/reservations", class: "btn pull-right"
+  .span10.offset1
+    %hr
 
-  .row
-    .span10.offset1
-      %table.table-bordered.table-striped.table.display.dataTables-table
-        %thead
+.row
+  .span10.offset1
+    %table.table-bordered.table-striped.table.display.dataTables-table
+      %thead
+        %tr
+          %th Name
+          %th Start Date
+          %th End Date
+          %th Room
+          %th Customer
+          %th Company
+      %tbody
+        - @reservations.each do |reservation| 
           %tr
-            %th Name
-            %th Start Date
-            %th End Date
-            %th Room
-            %th Customer
-            %th Company
-            %th Edit
-            %th Delete
-        %tbody
-          - @reservations.each do |reservation| 
-            %tr
-              %td= link_to reservation.full_name, reservation
-              %td= reservation.start_date.to_s(:rfc822)
-              %td= reservation.end_date.to_s(:rfc822)
-              %td= link_to reservation.room.name, reservation.room
-              %td= link_to reservation.customers.first.initial_name, reservation.customers.first
-              %td
-                - if reservation.company.nil?
-                  No company
-                - else
-                  = link_to reservation.company.name, reservation.company
-              %td= link_to "Edit", edit_reservation_path(reservation)
-              %td= link_to "Delete", reservation, method: :delete, data: { confirm: "You sure?" }
-      / = will_paginate 
+            %td= link_to reservation.full_name, reservation
+            %td= reservation.start_date.to_s(:rfc822)
+            %td= reservation.end_date.to_s(:rfc822)
+            %td= link_to reservation.room.name, reservation.room
+            %td= link_to reservation.customers.first.initial_name, reservation.customers.first
+            %td
+              - if reservation.company.nil?
+                No company
+              - else
+                = link_to reservation.company.name, reservation.company

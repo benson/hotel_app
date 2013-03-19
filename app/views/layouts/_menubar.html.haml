@@ -1,36 +1,41 @@
-%header.navbar
-  %nav.navbar-inner
-    %nav
-      %ul.nav        
-        %li{class: "#{'active' if params[:action] == 'daily'}"}
-          = link_to daily_path do
-            %i.icon-time
-            Daily
-        %li{class: "#{'active' if params[:controller] == 'reservations'}"}
-          = link_to reservations_path do 
-            %i.icon-calendar
-            Reservations
-        %li{class: "#{'active' if params[:controller] == 'rooms'}"}
-          = link_to rooms_path do
-            %i.icon-home
-            Rooms
-        %li{class: "#{'active' if params[:controller] == 'room_types'}"}
-          = link_to room_types_path do
-            %i.icon-money
-            Rates
-        %li{class: "#{'active' if params[:controller] == 'customers'}"}
-          = link_to customers_path do
-            %i.icon-group
-            Customers
-        %li{class: "#{'active' if params[:controller] == 'companies'}"}
-          = link_to companies_path do
-            %i.icon-briefcase
-            Companies
-        %li{class: "#{'active' if params[:controller] == 'services'}"}
-          = link_to services_path do
-            %i.icon-food
-            Services        
-        %li{class: "#{'active' if params[:controller] == 'receipts'}"}
-          = link_to receipts_path do
-            %i.icon-file-alt
-            Receipts
+%header
+  %ul#menu
+    = link_to daily_path do
+      %li{class: "#{'active' if params[:action] == 'daily'}"}
+        %i.icon-time
+        Daily
+    = link_to reservations_path do 
+      %li{class: "#{'active' if params[:controller] == 'reservations'}"}
+        %i.icon-calendar
+        Reservations
+    
+    = link_to rooms_path do
+      %li{class: "#{'active' if params[:controller] == 'rooms'}"}
+        %i.icon-home
+        Rooms
+    
+    = link_to room_types_path do
+      %li{class: "#{'active' if params[:controller] == 'room_types'}"}
+        %i.icon-money
+        Rates
+    
+    = link_to customers_path do
+      %li{class: "#{'active' if params[:controller] == 'customers'}"}
+        %i.icon-group
+        Customers
+    
+    = link_to companies_path do
+      %li{class: "#{'active' if params[:controller] == 'companies'}"}
+        %i.icon-briefcase
+        Companies
+    
+    = link_to services_path do
+      %li{class: "#{'active' if params[:controller] == 'services'}"}
+        %i.icon-food
+        Services        
+    
+    = link_to receipts_path do
+      %li{class: "#{'active' if params[:controller] == 'receipts'}"}
+        %i.icon-file-alt
+        Receipts
+    %li.stretcher

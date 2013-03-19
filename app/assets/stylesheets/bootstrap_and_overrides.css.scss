@@ -9,6 +9,14 @@ $iconWhiteSpritePath: '';
 $grayMediumLight: #eaeaea;
 $whiteSmoke: #F5F5F5;
 
+$defaultButtonColor: #3498db;
+$infoButtonColor: #34495e;
+$warningButtonColor: #f1c40f;
+$errorButtonColor: #e74c3c;
+$disabledButtonColor: #95a5a6;
+$primaryButtonColor: #1abc9c;
+$successButtonColor: #2ecc71;
+
  [class^="icon-"], [class*=" icon-"]{
     background:none;
   }
@@ -91,32 +99,6 @@ p {
   }
 }
 
-/* footer */
-
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $grayMediumLight;
-  color: $grayLight;
-  a {
-    color: $gray;
-    &:hover { 
-      color: $grayDarker;
-    }
-  }  
-  small { 
-    float: left; 
-  }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 10px;
-    }
-  }
-}
-
 .debug_dump {
   clear: both;
   float: left;
@@ -167,59 +149,6 @@ input {
   padding: 0 0 0 2px;
  }
 
-/* reservations calendar */
-#reservations .calendar {
-  border-collapse: collapse;
-  width: 100%;
-
-  td, th {
-    font-family: "Lucida Grande", arial, helvetica, sans-serif;
-    font-size: 10px;
-    padding: 6px;
-    border: 1px solid #999;
-  }
-
-  th {
-    background: #DDD;
-    color: #666;
-    text-align: center;
-    width: 14.2857142857143%;
-  }
-
-  td {
-    background: #FFF;
-    color: #777;
-    height: 80px;
-    vertical-align: top;
-    font-size: 16px;
-  }
-
-  .notmonth, .notmonth a { color: #CCC; }
-  .today { background-color: #D7F2FF; }
-  .beforetoday { color: #999; }
-
-  .reservation_link{
-    font-size: 12px;
-  }
-}
-
-#reservations #month {
-  margin: 0;
-  padding-bottom: 10px;
-  text-align: center;
-  font-size: 22px;
-  color: black;
-  a {
-    text-decoration: none;
-    padding: 0 10px;
-    color: #999;
-  }
-}
-
-#reservations ul {
-  font-size: 11px;
-  padding-left: 20px;
-}
 
 /* Daily View */
 .label{
@@ -229,26 +158,80 @@ input {
   }
 }
 
-// Menu Bar
-#menubar
-{
-  width: 942px;
-  header{
-    margin-bottom: 0;
-    nav{
-      padding-left: 0;
-      border-bottom: none;
-      border-radius: 0;
-    }
-  }
-}
 
-// "the real app"
-div#main-pane {
-  // padding:10px;
-  width: 942px;
-  border: 1px solid #E3E3E3;
-  background-color:white; 
-  min-height:800px;
-  @include box_sizing;
+.btn {
+  border: none;
+  background: $defaultButtonColor;
+  color: white;
+  font-size: 16.5px;
+  text-decoration: none;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-backface-visibility: hidden; 
+  &:hover, &:focus {
+    background-color: lighten($defaultButtonColor, 10%); 
+    color: white;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+    -webkit-backface-visibility: hidden; 
+  }
+  &:active, &.active {
+    background-color: darken($defaultButtonColor, 10%); 
+    color: rgba(255, 255, 255, 0.75);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none; 
+  }
+  &.disabled, &[disabled] {
+    background-color: $disabledButtonColor;
+    color: white; 
+  }
+  &.btn-large {
+    padding-bottom: 12px;
+    padding-top: 13px; 
+  }
+
+  &.btn-primary {
+    background-color: $primaryButtonColor;
+    &:hover, &:focus {
+      background-color: lighten($primaryButtonColor, 10%); }
+    &:active, &.active {
+      background-color: darken($primaryButtonColor, 10%);; }
+  }
+  &.btn-info {
+    background-color: $infoButtonColor; 
+    &:hover, &:focus {
+      background-color: lighten($infoButtonColor, 10%); }
+    &:active, &.active {
+      background-color: darken($infoButtonColor, 10%); ; } 
+  }
+  &.btn-danger {
+    background-color: $errorButtonColor; 
+    &:hover, &:focus {
+      background-color: lighten($errorButtonColor, 10%); }
+    &:active, &.active {
+      background-color: darken($errorButtonColor, 10%); ; }
+  }
+  &.btn-success {
+    background-color: $successButtonColor; 
+    &:hover, &:focus {
+      background-color: lighten($successButtonColor, 10%); }
+    &:active, &.active {
+      background-color: darken($successButtonColor, 10%); }
+  }
+  &.btn-warning {
+    background-color: $warningButtonColor;
+    &:hover, &:focus {
+      background-color: lighten($warningButtonColor, 10%); }
+    &:active, &.active {
+      background-color: darken($warningButtonColor, 10%);}
+  }
 }

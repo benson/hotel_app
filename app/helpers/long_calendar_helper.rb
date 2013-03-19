@@ -19,12 +19,12 @@ module LongCalendarHelper
       last = date + 1.weeks
       head = (first..last).to_a
       head.each do |temp|
-        temp = temp.to_formatted_s(:cal)  #format them
+        temp = temp.to_formatted_s(:numweekday)  #format them
       end
       name_header = content_tag :th, "Room", class: "room-name-header"
       content_tag :tr do
         name_header + head.map do |day|
-          day == Date.today ? (content_tag :th, day.to_s(:cal), class: "today") : (content_tag :th, day.to_s(:cal))
+          day == Date.today ? (content_tag :th, day.to_s(:numweekday), class: "today") : (content_tag :th, day.to_s(:numweekday))
         end.join.html_safe   # <th>date</th> all joined
       end
     end
@@ -71,7 +71,7 @@ module LongCalendarHelper
           end 
         end
       else
-        content_tag :td, "Free", class: day_classes(day)#view.capture(day, &callback), class: day_classes(day)
+        content_tag :td, "", class: day_classes(day)#view.capture(day, &callback), class: day_classes(day)
       end
     end
 

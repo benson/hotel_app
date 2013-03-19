@@ -1,6 +1,5 @@
 - provide(:header, 'All customers') 
 
-/ = will_paginate 
 #content
   .row
     .span10.offset1.button-row
@@ -15,8 +14,6 @@
           %tr
             %th Name
             %th Company
-            %th Edit
-            %th Delete
         %tbody
           - @customers.each do |customer| 
             %tr
@@ -26,6 +23,3 @@
                   No company
                 - else
                   = link_to customer.company.name, customer.company
-              %td= link_to "Edit", edit_customer_path(customer)
-              %td= link_to "Delete", customer, method: :delete, data: { confirm: "You sure?" }
-      / = will_paginate 
