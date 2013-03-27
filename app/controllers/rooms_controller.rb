@@ -63,4 +63,8 @@ class RoomsController < ApplicationController
     @room.destroy
     redirect_to rooms_path
   end
+
+  def daily
+    @rooms = Room.all 
+  end
 end

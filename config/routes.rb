@@ -6,6 +6,7 @@ HotelApp::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
   match '/reservations/table', to: 'reservations#table'
+  match '/rooms/daily', to: 'rooms#daily'
   resources :users
   resources :sessions
   resources :customers
@@ -15,11 +16,11 @@ HotelApp::Application.routes.draw do
   resources :reservations
   resources :receipts
 
-  root to: 'static_pages#daily'
+  root to: 'rooms#daily'
   match '/help', to: 'static_pages#help'
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
-  match '/daily', to: 'static_pages#daily'
+  match '/daily', to: 'rooms#daily'
   match '/quickres', to: 'static_pages#quickres'
 
 

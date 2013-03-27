@@ -1,5 +1,5 @@
 .row
-  .span6.offset3
+  .span10.offset1
     .notecard
       %table.table.table-striped.table-bordered
         %thead
@@ -23,7 +23,7 @@
               %td= number_to_currency(@reservation.room.room_type.price, precision: 2, :locale => "es-PE") + " per night"
             
 .row
-  .span6.offset3
+  .span10.offset1
     .notecard#receipt
       = form_for @receipt do |f| 
         = render 'shared/error_messages', object: f.object

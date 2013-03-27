@@ -148,9 +148,10 @@ if ( $.fn.DataTable.TableTools ) {
 
 
 /* Table initialisation */
+/* because of padding on span10, need to do span4 + span 5 + pull the span 5 right */
 $(document).ready(function() {
   $('.dataTables-table').dataTable( {
-    "sDom": "<'row'<'span5'l><'span5'f>r>t<'row'<'span5'i><'span5'p>>",
+    "sDom": "<'row'<'span4'l><'span5 pull-right'f>r>t<'row'<'span4'i><'span5 pull-right'p>>",
     "sPaginationType": "bootstrap",
     "oLanguage": {
       "sLengthMenu": "_MENU_ records per page"

@@ -1,5 +1,5 @@
 .row
-  .span6.offset3
+  .span10.offset1
     .notecard#receipt
       %table.table.table-striped.table-bordered
         %thead
@@ -45,14 +45,11 @@
                 %td= link_to @receipt.customer.initial_name, @receipt.customer
               %tr 
                 %td Receipt Number
-                %td= @receipt.receipt_num
-       
-
-    
-    = link_to @receipt, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right" do
-      %i.icon-minus-sign
-      Delete
-    = link_to edit_receipt_path, class: "btn pull-left" do
-      %i.icon-edit
-      Edit
+                %td= @receipt.receipt_num   
+      = link_to @receipt, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right" do
+        %i.icon-minus-sign
+        Delete
+      = link_to edit_receipt_path, class: "btn pull-left" do
+        %i.icon-edit
+        Edit
     

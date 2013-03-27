@@ -1,0 +1,40 @@
+/ #sidebar
+/   %ul#side-menu
+/     = link_to daily_path do
+/       %li{class: "#{'active' if params[:action] == 'daily'} top"}
+/         %i.icon-time
+/         Daily
+/     = link_to reservations_path do 
+/       %li{class: "#{'active' if params[:controller] == 'reservations'}"}
+/         %i.icon-calendar
+/         Reservations
+    
+/     = link_to rooms_path do
+/       %li{class: "#{'active' if params[:controller] == 'rooms' && params[:action] != 'daily'} "}
+/         %i.icon-home
+/         Rooms
+    
+/     = link_to room_types_path do
+/       %li{class: "#{'active' if params[:controller] == 'room_types'}"}
+/         %i.icon-money
+/         Rates
+    
+/     = link_to customers_path do
+/       %li{class: "#{'active' if params[:controller] == 'customers'}"}
+/         %i.icon-group
+/         Customers
+    
+/     = link_to companies_path do
+/       %li{class: "#{'active' if params[:controller] == 'companies'}"}
+/         %i.icon-briefcase
+/         Companies
+    
+/     = link_to services_path do
+/       %li{class: "#{'active' if params[:controller] == 'services'}"}
+/         %i.icon-food
+/         Services        
+    
+/     = link_to receipts_path do
+/       %li{class: "#{'active' if params[:controller] == 'receipts'}"}
+/         %i.icon-file-alt
+/         Receipts

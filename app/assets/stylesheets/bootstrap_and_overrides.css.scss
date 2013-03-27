@@ -1,7 +1,9 @@
 $iconSpritePath: '';
 $iconWhiteSpritePath: '';
 
+
 @import "bootstrap";
+// @import "bootstrap-responsive";
 @import "font-awesome";
 
 /* mixins, variables, etc. */
@@ -16,6 +18,12 @@ $errorButtonColor: #e74c3c;
 $disabledButtonColor: #95a5a6;
 $primaryButtonColor: #1abc9c;
 $successButtonColor: #2ecc71;
+$contextbarButtonColor: #BCF1ED;
+
+$borderColor: #D5D9D9;
+$menuBackgroundColor: #EEF2F2;
+$menuLinkColor: #8DA0B2;
+$menuLinkHoverColor:#5B6773;
 
  [class^="icon-"], [class*=" icon-"]{
     background:none;
@@ -44,6 +52,14 @@ section {
 
 textarea {
   resize: vertical;
+}
+
+a{
+  color: #1ABC9C;
+  // text-decoration: underline;
+  &:hover{
+    color: #16A085;
+  }
 }
 
 .center {
@@ -149,17 +165,10 @@ input {
   padding: 0 0 0 2px;
  }
 
-
-/* Daily View */
-.label{
-  a{
-    text-decoration: none;
-    color: white;
-  }
-}
-
-
 .btn {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
   border: none;
   background: $defaultButtonColor;
   color: white;
@@ -233,5 +242,24 @@ input {
       background-color: lighten($warningButtonColor, 10%); }
     &:active, &.active {
       background-color: darken($warningButtonColor, 10%);}
+  }
+  &.btn-context-bar {
+    font-size: inherit;
+    background-color: $contextbarButtonColor;
+    color: $menuLinkHoverColor;
+    a{
+      color: inherit;
+    }
+    a:hover{
+      text-decoration: none;
+      color: inherit;
+    }
+    &:hover, &:focus {
+      color: darken($menuLinkHoverColor, 10%);
+      background-color: lighten($contextbarButtonColor, 5%); }
+    &.active {
+      color: $menuLinkHoverColor;
+      // background-color: darken($contextbarButtonColor, 10%);
+    }
   }
 }

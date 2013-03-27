@@ -1,40 +1,62 @@
+$borderColor: #BCF1ED; //#D5D9D9;
+$menuBackgroundColor: #1ABC9C; // #EEF2F2;
+$menuLinkColor: white; //#8DA0B2;
+$menuLinkHoverColor: white; //#5B6773;
+
+$contextBarColor: #BCF1ED;
+$contextBarLinkColor: #5b6773;
+
 @mixin box_sizing {
   -moz-box-sizing: border-box; 
   -webkit-box-sizing: border-box; 
   box-sizing: border-box;
 }
-// "the real app"
-div#main-pane {
-  // padding:10px;
-  width: 942px;
-  border: 1px solid #E3E3E3;
-  border-top: none;
-  background-color:white; 
-  min-height:800px;
-  @include box_sizing;
+
+
+@mixin background_trans_speed{
+  -webkit-transition: background-color 0.25s;
+  -moz-transition: background-color 0.25s;
+  -o-transition: background-color 0.25s;
+  transition: background-color 0.25s;
 }
 
-$borderColor: #D5D9D9;
-$menuBackgroundColor: #EEF2F2;
-$menuLinkColor: #8DA0B2;
-$menuLinkHoverColor:#5B6773;
-#menu{
-  width: 100%;
-  text-align: justify;
-  -ms-text-justify: distribute-all-lines;
-  text-justify: distribute-all-lines;
+.container{
+
+}
+// "the real app"
+#content-pane {
+  border: 4px solid $borderColor;
+  border-top:none;
+  background-color:white; 
+  min-height:400px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  -webkit-border-bottom-right-radius: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+
+}
+
+#menu{  // top menu bar
+  @include box_sizing;
   padding: 0;
   margin: 0;
-  height: 60px;
-  border: 1px solid $borderColor;
+  height: 50px;
+  -webkit-border-top-left-radius: 4px;
+  -webkit-border-top-right-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+  -moz-border-radius-topright: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
   background-color: $menuBackgroundColor;
-
-
+  list-style: none;
+  border-bottom: none;
   a{
     font-size: 14px;
-    line-height: 60px;
-    color: $menuLinkColor;
-    
+    color: white;
     &:hover{
       text-decoration: none;
       color: $menuLinkHoverColor;
@@ -42,19 +64,54 @@ $menuLinkHoverColor:#5B6773;
   } 
 
   li{
-    display: inline-block;
-    width: auto;
-    *display: inline;
-    zoom: 1;
-    margin: 0 17px;
-    height: 60px;
-    text-align: center;
-    position: relative;
+    @include box_sizing;
+    @include background_trans_speed;
+    float: left;
+    padding-left: 7px;
+    padding-right: 12px;
+    -webkit-border-top-left-radius: 6px;
+    -webkit-border-top-right-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    -moz-border-radius-topright: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    line-height: 36px;
+    margin-top: 7px;
+    height: 42px;
+    &:hover{
+      background-color: lighten($menuBackgroundColor, 10%);
+    }
     &.active{
+      color: $contextBarLinkColor;
       font-weight: bold;
-      color: $menuLinkHoverColor;
+      background-color: $contextBarColor;
+    }
+  }
+}
 
-      &:before, &:after{
+#contextmenu{
+  margin-top: -1px;
+  height: 40px;
+  background-color: $contextBarColor;
+  a{  // li is stored in a so it's clickable
+    font-size: 12px; 
+    div.btn.btn-context-bar{
+      line-height: 31px;
+      font-size: 12px;
+      height: 31px;
+    }
+    &:hover{
+      text-decoration: none;
+    }   
+    &.active{
+      pointer-events: none;
+      cursor: default;
+      font-weight: bold;
+      position: relative;
+
+      // css triangle
+      &:after, &:before {
+        top: 100%;
         border: solid transparent;
         content: " ";
         height: 0;
@@ -62,30 +119,21 @@ $menuLinkHoverColor:#5B6773;
         position: absolute;
         pointer-events: none;
       }
+
       &:after {
-        border-color: rgba(255, 255, 255, 0);
-        border-bottom-color: white;
-        border-width: 12px;
+        border-color: rgba(188, 241, 237, 0);
+        border-top-color: $contextBarColor;
+        border-width: 20px;
         left: 50%;
-        top: 17px;
-        margin-left: -12px;
+        margin-left: -20px;
       }
       &:before {
-        border-color: rgba(213, 217, 217, 0);
-        border-bottom-color: $borderColor;
-        border-width: 13px;
+        border-color: rgba(93, 157, 9, 0);
+        border-top-color: $contextBarColor;
+        border-width: 22px;
         left: 50%;
-        top: 15px;
-        margin-left: -13px;
+        margin-left: -22px;
       }
     }
-  }
-  &.strecther{
-    width: 100%;
-    display: inline-block;
-    font-size: 0;
-    line-height: 0;
-  }
+  } 
 }
-
-

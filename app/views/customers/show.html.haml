@@ -1,7 +1,5 @@
-- provide(:title, @customer.initial_name)
-
 .row
-  .span6.offset3
+  .span10.offset1
     .notecard
       %table.table.table-striped.table-bordered
         %thead
@@ -22,11 +20,9 @@
           %tr
             %td{colspan:"2"}Company
             %td{colspan:"2"}= @customer.company.nil? ? "No company" : (link_to @customer.company.name, @customer.company)
-       
-
-    = link_to @customer, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right" do
-      %i.icon-minus-sign
-      Delete
-    = link_to edit_customer_path, class: "btn pull-left" do
-      %i.icon-edit
-      Edit
+      = link_to @customer, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right" do
+        %i.icon-minus-sign
+        Delete
+      = link_to edit_customer_path, class: "btn pull-left" do
+        %i.icon-edit
+        Edit

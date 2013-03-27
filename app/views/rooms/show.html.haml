@@ -1,6 +1,14 @@
 .row
-  .span6.offset3
+  .span10.offset1
     .notecard
+      = link_to @room, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right" do
+        %i.icon-minus-sign
+        Delete
+      = link_to edit_room_path, class: "btn pull-left" do
+        %i.icon-edit
+        Edit
+      %br
+      %br
       %table.table.table-striped.table-bordered
         %thead
           %tr
@@ -22,15 +30,11 @@
             %td{colspan:"2"}= @room.room_type.spaces
 
        
-    = link_to @room, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right" do
-      %i.icon-minus-sign
-      Delete
-    = link_to edit_room_path, class: "btn pull-left" do
-      %i.icon-edit
-      Edit
-
+      
+%br
+%br
 .row
-  .span8.offset2
+  .span10.offset1
     #reservations
       %h2#month
         = link_to "<", date: @date - 1.week

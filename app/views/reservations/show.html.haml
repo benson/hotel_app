@@ -1,7 +1,5 @@
-- provide(:title, "Reservation")
-
 .row
-  .span6.offset3
+  .span10.offset1
     .notecard
       %table.table.table-striped.table-bordered
         %thead
@@ -42,9 +40,9 @@
               %td{colspan:"2"}= link_to "Pay now", new_receipt_path(reservation_id: @reservation.id)
 
 
-    = link_to @reservation, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right" do
-      %i.icon-minus-sign
-      Delete
-    = link_to edit_reservation_path, class: "btn pull-left" do
-      %i.icon-edit
-      Edit
+      = link_to @reservation, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right" do
+        %i.icon-minus-sign
+        Delete
+      = link_to edit_reservation_path, class: "btn pull-left" do
+        %i.icon-edit
+        Edit

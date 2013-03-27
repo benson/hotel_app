@@ -1,7 +1,5 @@
-- provide(:title, @company.name)
-
 .row
-  .span6.offset3
+  .span10.offset1
     .notecard
       %table.table.table-striped.table-bordered
         %thead
@@ -17,9 +15,9 @@
             %td{colspan:"2"}Number
             %td{colspan:"2"}= @company.number       
 
-    = link_to @company, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right" do
-      %i.icon-minus-sign
-      Delete
-    = link_to edit_company_path, class: "btn pull-left" do
-      %i.icon-edit
-      Edit
+      = link_to @company, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right" do
+        %i.icon-minus-sign
+        Delete
+      = link_to edit_company_path, class: "btn pull-left" do
+        %i.icon-edit
+        Edit

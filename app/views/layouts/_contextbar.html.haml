@@ -1,0 +1,146 @@
+#contextmenu 
+  -if params[:controller] == 'rooms' && params[:action] == 'daily'
+    =link_to new_reservation_path, :class => params[:action] == 'new' ? 'active' : '' do 
+      .btn.btn-context-bar{:class => params[:action] == 'new' ? 'active' : ''}
+        %i.icon-plus
+        New Reservation
+
+  -elsif params[:controller] == 'reservations'
+    =link_to new_reservation_path, :class => params[:action] == 'new' ? 'active' : '' do 
+      .btn.btn-context-bar{:class => params[:action] == 'new' ? 'active' : ''}
+        %i.icon-plus
+        New Reservation
+    =link_to "/reservations/table/", :class => params[:action] == 'table' ? 'active' : '' do 
+      .btn.btn-context-bar{ :class => params[:action] == 'table' ? 'active' : '' }
+        %i.icon-list
+        Table View
+    =link_to reservations_path, :class => params[:action] == 'index' ? 'active' : '' do 
+      .btn.btn-context-bar{ :class => params[:action] == 'index' ? 'active' : ''}
+        %i.icon-calendar
+        Calendar View 
+    -if params[:action] == 'show' or params[:action] == 'edit'
+      =link_to reservation_path, :class => params[:action] == 'show' ? 'active' : '' do 
+        .btn.btn-context-bar{ :class => params[:action] == 'show' ? 'active' : ''}
+          %i.icon-calendar
+          =@reservation.full_name
+    -if params[:action] == 'edit'
+      =link_to rooms_path, :class => params[:action] == 'edit' ? 'active' : '' do 
+        .btn.btn-context-bar{ :class => params[:action] == 'edit' ? 'active' : ''}
+          %i.icon-edit
+          = "Editing " + @reservation.full_name
+
+  -elsif params[:controller] == 'rooms'
+    =link_to new_room_path, :class => params[:action] == 'new' ? 'active' : '' do 
+      .btn.btn-context-bar{:class => params[:action] == 'new' ? 'active' : ''}
+        %i.icon-plus
+        New Room
+    =link_to rooms_path, :class => params[:action] == 'index' ? 'active' : '' do 
+      .btn.btn-context-bar{ :class => params[:action] == 'index' ? 'active' : ''}
+        %i.icon-list
+        Table View 
+    -if params[:action] == 'show' or params[:action] == 'edit'
+      =link_to room_path, :class => params[:action] == 'show' ? 'active' : '' do 
+        .btn.btn-context-bar{ :class => params[:action] == 'show' ? 'active' : ''}
+          %i.icon-home
+          =@room.name
+    -if params[:action] == 'edit'
+      =link_to rooms_path, :class => params[:action] == 'edit' ? 'active' : '' do 
+        .btn.btn-context-bar{ :class => params[:action] == 'edit' ? 'active' : ''}
+          %i.icon-edit
+          = "Editing " + @room.name
+
+  -elsif params[:controller] == 'room_types'
+    =link_to new_room_type_path, :class => params[:action] == 'new' ? 'active' : '' do 
+      .btn.btn-context-bar{:class => params[:action] == 'new' ? 'active' : ''}
+        %i.icon-plus
+        New Room Type
+    =link_to room_types_path, :class => params[:action] == 'index' ? 'active' : '' do 
+      .btn.btn-context-bar{ :class => params[:action] == 'index' ? 'active' : ''}
+        %i.icon-list
+        Table View 
+    -if params[:action] == 'show' or params[:action] == 'edit'
+      =link_to room_path, :class => params[:action] == 'show' ? 'active' : '' do 
+        .btn.btn-context-bar{ :class => params[:action] == 'show' ? 'active' : ''}
+          %i.icon-home
+          =@room_type.name
+    -if params[:action] == 'edit'
+      =link_to rooms_path, :class => params[:action] == 'edit' ? 'active' : '' do 
+        .btn.btn-context-bar{ :class => params[:action] == 'edit' ? 'active' : ''}
+          %i.icon-edit
+          = "Editing " + @room_type.name
+
+  -elsif params[:controller] == 'customers'
+    =link_to new_customer_path, :class => params[:action] == 'new' ? 'active' : '' do 
+      .btn.btn-context-bar{:class => params[:action] == 'new' ? 'active' : ''}
+        %i.icon-plus
+        New Customer
+    =link_to customers_path, :class => params[:action] == 'index' ? 'active' : '' do 
+      .btn.btn-context-bar{ :class => params[:action] == 'index' ? 'active' : ''}
+        %i.icon-list
+        Table View 
+    -if params[:action] == 'show' or params[:action] == 'edit'
+      =link_to customer_path, :class => params[:action] == 'show' ? 'active' : '' do 
+        .btn.btn-context-bar{ :class => params[:action] == 'show' ? 'active' : ''}
+          %i.icon-user
+          =@customer.initial_name
+    -if params[:action] == 'edit'
+      =link_to customers_path, :class => params[:action] == 'edit' ? 'active' : '' do 
+        .btn.btn-context-bar{ :class => params[:action] == 'edit' ? 'active' : ''}
+          %i.icon-edit
+          = "Editing " + @customer.initial_name
+
+  -elsif params[:controller] == 'companies'
+    =link_to new_customer_path, :class => params[:action] == 'new' ? 'active' : '' do 
+      .btn.btn-context-bar{:class => params[:action] == 'new' ? 'active' : ''}
+        %i.icon-plus
+        New Company
+    =link_to companies_path, :class => params[:action] == 'index' ? 'active' : '' do 
+      .btn.btn-context-bar{ :class => params[:action] == 'index' ? 'active' : ''}
+        %i.icon-list
+        Table View 
+    -if params[:action] == 'show' or params[:action] == 'edit'
+      =link_to company_path, :class => params[:action] == 'show' ? 'active' : '' do 
+        .btn.btn-context-bar{ :class => params[:action] == 'show' ? 'active' : ''}
+          %i.icon-briefcase
+          =@company.name
+    -if params[:action] == 'edit'
+      =link_to companies_path, :class => params[:action] == 'edit' ? 'active' : '' do 
+        .btn.btn-context-bar{ :class => params[:action] == 'edit' ? 'active' : ''}
+          %i.icon-edit
+          = "Editing " + @company.name
+
+  -elsif params[:controller] == 'services'
+    =link_to new_customer_path, :class => params[:action] == 'new' ? 'active' : '' do 
+      .btn.btn-context-bar{:class => params[:action] == 'new' ? 'active' : ''}
+        %i.icon-plus
+        New Service
+    =link_to services_path, :class => params[:action] == 'index' ? 'active' : '' do 
+      .btn.btn-context-bar{ :class => params[:action] == 'index' ? 'active' : ''}
+        %i.icon-list
+        Table View 
+    -if params[:action] == 'show' or params[:action] == 'edit'
+      =link_to service_path, :class => params[:action] == 'show' ? 'active' : '' do 
+        .btn.btn-context-bar{ :class => params[:action] == 'show' ? 'active' : ''}
+          %i.icon-food
+          =@service.name
+    -if params[:action] == 'edit'
+      =link_to services_path, :class => params[:action] == 'edit' ? 'active' : '' do 
+        .btn.btn-context-bar{ :class => params[:action] == 'edit' ? 'active' : ''}
+          %i.icon-edit
+          = "Editing " + @service.name
+
+  -elsif params[:controller] == 'receipts'
+    =link_to receipts_path, :class => params[:action] == 'index' ? 'active' : '' do 
+      .btn.btn-context-bar{ :class => params[:action] == 'index' ? 'active' : ''}
+        %i.icon-list
+        Table View 
+    -if params[:action] == 'show' or params[:action] == 'edit'
+      =link_to receipt_path, :class => params[:action] == 'show' ? 'active' : '' do 
+        .btn.btn-context-bar{ :class => params[:action] == 'show' ? 'active' : ''}
+          %i.icon-file-alt
+          ="Receipt " + @receipt.name.to_s
+    -if params[:action] == 'edit'
+      =link_to receipts_path, :class => params[:action] == 'edit' ? 'active' : '' do 
+        .btn.btn-context-bar{ :class => params[:action] == 'edit' ? 'active' : ''}
+          %i.icon-edit
+          = "Editing receipt " + @receipt.name.to_s
