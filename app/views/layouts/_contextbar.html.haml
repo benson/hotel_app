@@ -110,7 +110,7 @@
           = "Editing " + @company.name
 
   -elsif params[:controller] == 'services'
-    =link_to new_customer_path, :class => params[:action] == 'new' ? 'active' : '' do 
+    =link_to new_service_path, :class => params[:action] == 'new' ? 'active' : '' do 
       .btn.btn-context-bar{:class => params[:action] == 'new' ? 'active' : ''}
         %i.icon-plus
         New Service

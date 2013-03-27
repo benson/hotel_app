@@ -3,7 +3,8 @@ $.extend( true, $.fn.dataTable.defaults, {
   "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
   "sPaginationType": "bootstrap",
   "oLanguage": {
-    "sLengthMenu": "_MENU_ records per page"
+    "sLengthMenu": "_MENU_ records per page",
+    "sSearch": ""
   }
 } );
 
@@ -150,12 +151,19 @@ if ( $.fn.DataTable.TableTools ) {
 /* Table initialisation */
 /* because of padding on span10, need to do span4 + span 5 + pull the span 5 right */
 $(document).ready(function() {
-  $('.dataTables-table').dataTable( {
-    "sDom": "<'row'<'span4'l><'span5 pull-right'f>r>t<'row'<'span4'i><'span5 pull-right'p>>",
+  theTable = $('.dataTables-table').dataTable( {
+    "sDom": "<'row searchrow'<'span5 recordsPerPage'l><'span5 search pull-right'f>r>t<'row paginationRow'<'span5 showingInfo'i><'span5 paginationLinks pull-right'p>>",
     "sPaginationType": "bootstrap",
     "oLanguage": {
-      "sLengthMenu": "_MENU_ records per page"
+      "sLengthMenu": "_MENU_ "  // this is where "records per page would go"
     },
     "aaSorting": []
   } );
+  $('.dataTables_filter input').attr("placeholder", "Search");
+  $('.dataTables_length label').css("display", "none");
+  $('.searchrow').css("display", "none");
+
+  $('#searchBox').keyup(function(){
+    theTable.fnFilter( $(this).val() );
+  });
 } );

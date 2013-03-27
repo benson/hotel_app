@@ -1,6 +1,11 @@
 .row
   .span10.offset1
-    %table.table-bordered.table-striped.table.display.dataTables-table
+    .customSearch
+      .tableName
+        Rooms
+      .search
+        %input#searchBox{type:"text", placeholder: "Search"}
+    %table.table.display.dataTables-table
       %thead
         %tr
           %th Name

@@ -1,10 +1,6 @@
-$borderColor: #BCF1ED; //#D5D9D9;
-$menuBackgroundColor: #1ABC9C; // #EEF2F2;
-$menuLinkColor: white; //#8DA0B2;
-$menuLinkHoverColor: white; //#5B6773;
-
 $contextBarColor: #BCF1ED;
 $contextBarLinkColor: #5b6773;
+$menuBackgroundColor: darken($contextBarColor, 35%);//#1ABC9C; 
 
 @mixin box_sizing {
   -moz-box-sizing: border-box; 
@@ -12,6 +8,21 @@ $contextBarLinkColor: #5b6773;
   box-sizing: border-box;
 }
 
+@mixin no_border_radius{
+  -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+@mixin no_box_shadow{
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+body{
+  color: $contextBarLinkColor;
+}
 
 @mixin background_trans_speed{
   -webkit-transition: background-color 0.25s;
@@ -25,18 +36,18 @@ $contextBarLinkColor: #5b6773;
 }
 // "the real app"
 #content-pane {
-  border: 4px solid $borderColor;
+  border: 4px solid $contextBarColor;
   border-top:none;
   background-color:white; 
   min-height:400px;
   padding-top: 20px;
   padding-bottom: 20px;
-  -webkit-border-bottom-right-radius: 4px;
-  -webkit-border-bottom-left-radius: 4px;
-  -moz-border-radius-bottomright: 4px;
-  -moz-border-radius-bottomleft: 4px;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
+  // -webkit-border-bottom-right-radius: 4px;
+  // -webkit-border-bottom-left-radius: 4px;
+  // -moz-border-radius-bottomright: 4px;
+  // -moz-border-radius-bottomleft: 4px;
+  // border-bottom-right-radius: 4px;
+  // border-bottom-left-radius: 4px;
 
 }
 
@@ -45,12 +56,12 @@ $contextBarLinkColor: #5b6773;
   padding: 0;
   margin: 0;
   height: 50px;
-  -webkit-border-top-left-radius: 4px;
-  -webkit-border-top-right-radius: 4px;
-  -moz-border-radius-topleft: 4px;
-  -moz-border-radius-topright: 4px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  // -webkit-border-top-left-radius: 4px;
+  // -webkit-border-top-right-radius: 4px;
+  // -moz-border-radius-topleft: 4px;
+  // -moz-border-radius-topright: 4px;
+  // border-top-left-radius: 4px;
+  // border-top-right-radius: 4px;
   background-color: $menuBackgroundColor;
   list-style: none;
   border-bottom: none;
@@ -59,7 +70,6 @@ $contextBarLinkColor: #5b6773;
     color: white;
     &:hover{
       text-decoration: none;
-      color: $menuLinkHoverColor;
     }
   } 
 
@@ -67,21 +77,23 @@ $contextBarLinkColor: #5b6773;
     @include box_sizing;
     @include background_trans_speed;
     float: left;
-    padding-left: 7px;
+    padding-left: 8px;
     padding-right: 12px;
-    -webkit-border-top-left-radius: 6px;
-    -webkit-border-top-right-radius: 6px;
-    -moz-border-radius-topleft: 6px;
-    -moz-border-radius-topright: 6px;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    line-height: 36px;
-    margin-top: 7px;
-    height: 42px;
+    // -webkit-border-top-left-radius: 3px;
+    // -webkit-border-top-right-radius: 3px;
+    // -moz-border-radius-topleft: 3px;
+    // -moz-border-radius-topright: 3px;
+    // border-top-left-radius: 3px;
+    // border-top-right-radius: 3px;
+    line-height: 50px;
+    // margin-top: 7px;
+    height: 50px;
     &:hover{
       background-color: lighten($menuBackgroundColor, 10%);
     }
     &.active{
+      pointer-events: none;
+      cursor: default;
       color: $contextBarLinkColor;
       font-weight: bold;
       background-color: $contextBarColor;
@@ -99,6 +111,26 @@ $contextBarLinkColor: #5b6773;
       line-height: 31px;
       font-size: 12px;
       height: 31px;
+      position: relative;
+      &.active{
+        &:after, &:before {
+          top: 100%;
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+        }
+
+        &:after {
+          border-color: rgba(188, 241, 237, 0);
+          border-top-color: $contextBarColor;
+          border-width: 10px;
+          left: 50%;
+          margin-left: -10px;
+        }
+      }
     }
     &:hover{
       text-decoration: none;
@@ -110,30 +142,180 @@ $contextBarLinkColor: #5b6773;
       position: relative;
 
       // css triangle
-      &:after, &:before {
-        top: 100%;
-        border: solid transparent;
-        content: " ";
-        height: 0;
-        width: 0;
-        position: absolute;
-        pointer-events: none;
-      }
-
-      &:after {
-        border-color: rgba(188, 241, 237, 0);
-        border-top-color: $contextBarColor;
-        border-width: 20px;
-        left: 50%;
-        margin-left: -20px;
-      }
-      &:before {
-        border-color: rgba(93, 157, 9, 0);
-        border-top-color: $contextBarColor;
-        border-width: 22px;
-        left: 50%;
-        margin-left: -22px;
-      }
+      
     }
   } 
+}
+
+a{
+  color: darken($menuBackgroundColor, 10%);
+  // text-decoration: underline;
+  &:hover{
+    color: darken($menuBackgroundColor, 20%);//#16A085;
+  }
+}
+
+
+/* some styling for the datatables, hopefully can switch away from them soon */
+.searchrow{
+  background-color: $contextBarColor;
+  margin-left: 0;
+  
+}
+
+.recordsPerPage{
+  margin-left: 0;
+  // padding-left: 10px;
+  // width: 370px;
+  label{
+    padding-top: 6px;
+    padding-left: 6px;
+    select{
+      @include no_border_radius;
+      // font-size: 16px;
+      // background-color: $menuBackgroundColor;
+      border: none;
+      color: $contextBarLinkColor;
+      background-image: none;
+    }
+  }
+}
+
+.search{
+  label{
+    padding-right: 6px;
+    padding-top: 6px;
+    input{
+      @include no_border_radius;
+      border: none;
+    }
+  }
+}
+
+.paginationRow{
+  background-color: $contextBarColor;
+  margin-left: 0;
+  .showingInfo{
+    margin-left: 0;
+    font-size: 13px;
+    .dataTables_info{
+      padding-left: 8px;
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+  }
+
+  .pagination{
+    height: 32px;
+    ul{
+      @include no_border_radius;
+      @include no_box_shadow;
+      border: none;
+      height: 32px;
+      li{
+        a{
+          height: 32px;
+          line-height: 32px;
+          border: none;
+          padding: 0 12px;
+
+        }
+        
+      }
+      .active{
+        a{
+          background-color: darken($contextBarColor, 15%);
+          color: white;
+        }
+      }
+
+      .disabled{
+        a{
+          color: lighten($contextBarLinkColor, 15%);
+          &:hover{
+            color: lighten($contextBarLinkColor, 15%); 
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.dataTables_wrapper{
+  // padding-top: 10px;
+  table{
+    border: none;
+    background-color: lighten($contextBarColor, 10%);
+    margin-bottom: 0px;
+    thead{
+      font-size: 12px;
+      text-transform: uppercase;
+      background-color: $menuBackgroundColor;
+      color:white;
+      tr{
+        height: 10px;
+        th{
+          padding: 5px 10px;
+        }
+        th:first-child{
+          padding-left: 20px;;
+        }
+      }
+    }
+    th{
+      border: none;
+    }
+    td{
+      
+      border: none;
+    }
+    td:first-child{
+        padding-left: 20px;;
+      }
+    tr.odd{
+      background-color: lighten($contextBarColor, 14%);
+    }
+    tr.even{
+      background:none;
+    }
+  }
+}
+
+.customSearch{
+  margin-top: 10px;
+  background-color: $contextBarColor;
+  height: 50px;
+  .tableName{
+    width: 200px;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-left: 20px;
+    line-height: 50px;
+  }
+
+  .search{
+    width: 200px;
+    display: inline-block;
+    float: right;
+
+    input{
+      background-color: lighten($contextBarColor, 14%);
+      line-height: 42px;
+      height: 42px;
+      font-size: 99%;
+      @include no_border_radius;
+      @include no_box_shadow;
+      margin-bottom: 0;
+      border: none;
+      margin: 0;
+      padding: none;
+      &:focus{
+        @include no_border_radius;
+        @include no_box_shadow;
+      }
+    }
+  }
 }
